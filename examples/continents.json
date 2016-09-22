@@ -1,0 +1,174 @@
+{
+    "Report": {
+        "title": "Report about continents",
+        "created": "2016-09-17 14:14",
+        "author": "xv1t@yandex.ru",
+        "rating": 1254.5,
+        "show_sign_image": false
+    },
+    "Continents": [
+        {
+            "Continent": {
+                "name": "Africa",
+                "area": 6309.01
+            },
+            "Countries": [
+                {
+                    "Country": {
+                        "name": "Egypt",
+                        "area": 231
+                    },
+                    "Cities": [
+                        {
+                            "City": {
+                                "name": "Kair"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Country": {
+                        "name": "Madagaskar",
+                        "area": 111
+                    }
+                }
+            ],
+            "Seas": [
+                {
+                    "Sea": {
+                        "name": "Red Sea",
+                        "area": 233.2
+                    },
+                    "Islands": [
+                        {
+                            "Island": {
+                                "name": "Monkey"
+                            },
+                            "Island": {
+                                "name": "Palm",
+                                "area": 23.5
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Continent": {
+                "name": "Euroasia",
+                "area": 8726.34
+            },
+            "Seas": [
+                {
+                    "Sea": {
+                        "name": "Black sea",
+                        "area": 4452.16
+                    },
+                    "Islands": [
+                        {
+                            "Island": {
+                                "name": "Buyan",
+                                "area": 45,
+                                "animals": "Belki, lebedy",
+                                "volcano": "no"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Sea": {
+                        "name": "Azovsloe",
+                        "area": 342
+                    }
+                }
+            ],
+            "Countries": [
+                {
+                    "Country": {
+                        "name": "USSR",
+                        "capital": "Moscow"
+                    },
+                    "Cities": [
+                        {
+                            "City": {
+                                "name": "Samara"
+                            }
+                        },
+                        {
+                            "City": {
+                                "name": "Moscow"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Country": {
+                        "name": "Belorussia",
+                        "capital": "Minsk"
+                    },
+                    "Cities": [
+                        {
+                            "City": {
+                                "name": "Minsk"
+                            }
+                        },
+                        {
+                            "City": {
+                                "name": "Grodno"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Continent": {
+                "name": "North America",
+                "area": 12343
+            },
+            "Countries": [
+                {
+                    "Country": {
+                        "name": "Canada",
+                        "capital": "Ottawa"
+                    },
+                    "Cities": []
+                },
+                {
+                    "Country": {
+                        "name": "USA",
+                        "capital": "Washington"
+                    },
+                    "Cities": []
+                }
+            ]
+        }
+    ],
+    "Oceans": [
+        {
+            "Ocean": {
+                "name": "Pacific",
+                "area": 2381.45
+            }
+
+        },
+        {
+            "Ocean": {
+                "name": "Atlantic",
+                "area": 23422
+            }
+        },
+        {
+            "Ocean": {
+                "name": "Indian",
+                "area": 9031.09
+            }
+        },
+        {
+            "Ocean": {
+                "name": "Arctic",
+                "area": 73076.4
+            }
+        }
+    ]
+}
