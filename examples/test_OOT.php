@@ -4,7 +4,6 @@ require '../OpenDocumentTemplate.php';
 
 $oo = new OpenDocumentTemplate();
 
-
 $json_string = file_get_contents('continents.json');
 $json_string = str_replace(
         array("\n", "\t"), array('', ''), $json_string);

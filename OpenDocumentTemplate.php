@@ -20,11 +20,23 @@ class OpenDocumentTemplate {
         'separator' => '.'
     );
     var $mimetype; //of current open file
-
-     /*
-      Main function read source file, analyze it and render to new file
+    
+    /**
+     * Open a template file, read him, and write result to a out_file
+     * @param string $template_file<p>
+     * Path to source ods or odt file
+     * </p>
+     * @param string $out_file<p>
+     * Path to result file
+     * </p>
+     * @param array $data<p>
+     * Structured array
+     * </p>
+     * @param array $options<p>
+     * Options
+     * </p>
      */
-    function open($template_file, $out_file, $data = array(), $options = array()) {
+    function open($template_file, $out_file, $data, $options = array()) {
         if (empty($this->dom)) {
             $this->dom = new DOMDocument;
         }
