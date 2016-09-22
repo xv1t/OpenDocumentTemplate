@@ -7,3 +7,12 @@ Creating reports from your templates files
 4. Load data from database
 5. Render data through template file info your new ods file
 6. Open in the LibreOffice Calc or other and enjoy
+
+
+## Requirements
+Php extensions
+* zip
+* xml
+
+Php version 5>
+Recommended sowfware for templating: LibreOffice 5
