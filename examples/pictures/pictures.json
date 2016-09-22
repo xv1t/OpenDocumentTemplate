@@ -1,0 +1,36 @@
+{
+    "Report": {
+        "title": "Data with pictures example"
+        
+    },
+    "People": [
+        {
+            "Person": {
+                "name": "Took Adalva",
+                "title": "Izvr Magistr",
+                "image_href": "img/acroread.png"                
+            }
+        },
+        {
+            "Person": {
+                "name": "Googve",
+                "title": "Devon Otver",
+                "image_href": "img/im-status-message-edit.png"                
+            }
+        },
+        {
+            "Person": {
+                "name": "Boorva",
+                "title": "Grevuan Octanr",
+                "image_href": "img/kmplayer.png"                
+            }
+        },
+        {
+            "Person": {
+                "name": "Grigge",
+                "title": "Fuurm Horsd",
+                "image_href": false
+            }
+        }
+    ]
+}

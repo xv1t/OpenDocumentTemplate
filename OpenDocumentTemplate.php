@@ -29,8 +29,8 @@ class OpenDocumentTemplate {
      * @param string $out_file<p>
      * Path to result file
      * </p>
-     * @param array $data<p>
-     * Structured array
+     * @param mixed $data<p>
+     * Structured array, or path to json file with data
      * </p>
      * @param array $options<p>
      * Options
@@ -47,6 +47,17 @@ class OpenDocumentTemplate {
         $this->dom->loadXML($zip->getFromName('meta.xml'));
         $this->read_meta();
 
+        $this->dom->loadXML($zip->getFromName('content.xml'));
+        $zip->close();
+                 
+        if (is_string($data) && file_exists($data)){
+            $data = json_decode(file_get_contents($data), true );
+        } 
+        
+        if (empty($data)){
+            $data = array();
+        }
+        
         //prepare data
         $data += array(
             'now' => date('Y-m-d'),
@@ -55,12 +66,8 @@ class OpenDocumentTemplate {
             'template_file' => $template_file,
             'out_file' => $out_file
         );
-
-        $this->dom->loadXML($zip->getFromName('content.xml'));
-        $zip->close();
         
         $this->data = $data;
-
         switch ($this->mimetype) {
             case 'application/vnd.oasis.opendocument.spreadsheet':
                 $this->ods_analyze();
@@ -99,9 +106,41 @@ class OpenDocumentTemplate {
         //styles.xml
         $this->dom->loadXML($zip->getFromName('styles.xml'));
         $zip->addFromString('styles.xml', $this->render_styles());
+        
+        //add images
+        if ( !empty($options['with_image_dir']) ){
+            if (is_dir($options['with_image_dir'])){
+                //var_dump($zip->getFromName('META-INF/manifest.xml'));
+                $this->dom->loadXML($zip->getFromName('META-INF/manifest.xml'));
+                
+                $zip->addFromString('META-INF/manifest.xml', 
+                    $this->write_manifest( 
+                            $this->dir_to_zip(
+                                $zip, 
+                                $options['with_image_dir'], 
+                                'Pictures')
+                        )
+                    );
+            }
+        }
 
         $zip->close();
     }
+    
+   function write_manifest($files = array()){
+       $manifest = $this->dom->getElementsByTagName('manifest')->item(0);
+       
+       foreach ($files as $file){
+           $file_entry = $this->dom->createElement('manifest:file-entry');
+           
+           $file_entry->setAttribute('manifest:full-path', $file['path']);
+           $file_entry->setAttribute('manifest:media-type', $file['mime']);
+           
+           $manifest->appendChild($file_entry);
+       }
+       
+       return $this->dom->saveXML();
+   }
     
    function read_meta() {
         $this->meta = array();
@@ -420,10 +459,29 @@ class OpenDocumentTemplate {
                     }
                 }
             }
+            
+            //analyze images
+            //$frames = $this->dom_elements2array( $cell->getElementsByTagname('frame') );
+            
+           // foreach ($frames as $frame){
+               // $image = $frame->getElementsByTagName('image')->item(0);
+               // $image->setAttribute('xlink:href', 'Pictures/img/view-pim-tasks.png');
+            //}
+            
+        
         }
         return $row;
     }
 
+    function dom_elements2array($elements){
+        $result = array();
+        foreach ($elements as $el){
+            $result[] = $el;
+        }
+            
+        return $result;
+    }
+    
     function ods_cell_set_val($cell, $p, $val, $options = array()) {
         //check a data type and change a cell type with from
 
@@ -669,6 +727,40 @@ class OpenDocumentTemplate {
             }
             
         }
+    }
+    
+    //add custom dir to zip
+    function dir_to_zip($zip, $source_dir, $zip_dest_dir){
+        $added_files = array();
+            $files = new RecursiveIteratorIterator(
+                new RecursiveDirectoryIterator($source_dir),
+                RecursiveIteratorIterator::LEAVES_ONLY
+            );
+
+            foreach ($files as $name => $file)
+            {
+                
+                // Skip directories (they would be added automatically)
+                if (!$file->isDir())
+                {
+                    
+                    
+                    // Get real and relative path for current file
+                    $filePath = $file->getRealPath();
+                    $relativePath = substr($filePath, strlen($source_dir) + 1);
+
+                    $added_files[] = array(
+                        'path' => $zip_dest_dir . '/' . $name,
+                        'mime' => mime_content_type($filePath)
+                    );
+                    //echo print_r( compact('name', 'file', 'filePath', 'relativePath') );
+                    // Add current file to archive
+                    $zip->addFile($filePath, $zip_dest_dir . '/' . $name );
+                    
+                }
+            }        
+           // print_r(compact('added_files'));
+        return $added_files;
     }
 
     //return true if $this->params[before] and [after] exists
