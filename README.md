@@ -1,5 +1,14 @@
 # OpenDocumentTemplate.php
-Creating reports from your templates files
+>Creating reports from your templates files
+
+Recommended software for create template
+* LibreOffice
+* OpenOffice
+Your done reports was correct opened in
+* LibreOffice
+* OpenOffice
+* MS Office >=2010
+
 ## Fast manual
 1. Create template ods file
 2. Put elements
@@ -15,4 +24,5 @@ Php extensions
 * xml
 
 Php version 5>
+
 Recommended sowfware for templating: LibreOffice 5
