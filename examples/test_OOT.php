@@ -1,6 +1,6 @@
 <?php
 
-require './OpenDocumentTemplate.php';
+require '../OpenDocumentTemplate.php';
 
 
 //class
