@@ -27,7 +27,6 @@ class OpenDocumentTemplate {
     function open($template_file, $out_file, $data = array(), $options = array()) {
         if (empty($this->dom)) {
             $this->dom = new DOMDocument;
-            $this->tmpdom = new DOMDocument;
         }
         $zip = new ZipArchive;
         $zip->open($template_file);
