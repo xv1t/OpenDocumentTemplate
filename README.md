@@ -4,7 +4,8 @@
 Recommended software for create template
 * LibreOffice
 * OpenOffice
-Your done reports was correct opened in
+
+Your done report files was correct opened in
 * LibreOffice
 * OpenOffice
 * MS Office >=2010
