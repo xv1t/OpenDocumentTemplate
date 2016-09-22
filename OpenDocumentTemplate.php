@@ -80,7 +80,7 @@ class OpenDocumentTemplate {
 
         $content = $this->dom->saveXml();
 
-        file_put_contents($out_file . '-content.xml', $content);
+        //file_put_contents($out_file . '-content.xml', $content);
 
         $zip->addFromString('content.xml', $content);
 
