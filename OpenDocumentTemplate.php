@@ -318,8 +318,10 @@ class OpenDocumentTemplate {
     function ods_level1_ranges() {
         $level0ranges = array();
         
-        foreach ($this->schema['named-range'] as $range){
-            
+        foreach ($this->schema['named-range'] as $range_name => $range){
+            if ($range['level'] == 1){
+                $level0ranges[] = $range_name;
+            }
         }
         
         return $level0ranges;
