@@ -28,12 +28,8 @@ Data example
 } 
 ```
 Row ODS
-A | B | C | D 
-----|-----|-----|------
-dd | df |
 
-First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
-[position]|
+
+pos | name | image |
+------------ | -------------|----
+[position]|  [Person.name] | [Person.image]
