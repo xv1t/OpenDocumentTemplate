@@ -107,7 +107,7 @@ class OpenDocumentTemplate {
         //
 
         $zip->addFromString('content.xml', $content);
-
+        
         //styles.xml
         $this->dom->loadXML($zip->getFromName('styles.xml'));
         $zip->addFromString('styles.xml', $this->render_styles());
@@ -383,6 +383,11 @@ class OpenDocumentTemplate {
             
             $this->data += $this->ods_aggregate_data($range_name, $this->data);
         }
+    }
+    
+    function ods_analyze_images() {
+        $this->dom->getElementsByTagName('table')->item(0)
+                ->getElementsByTagName('');
     }
     
     function ods_analyze_row_ranges($row) {
