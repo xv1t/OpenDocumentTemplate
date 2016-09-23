@@ -128,6 +128,8 @@ class OpenDocumentTemplate {
                     );
             }
         }
+        
+        //find unused images and and delete from zip
 
         $zip->close();
     }
