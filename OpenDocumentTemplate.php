@@ -67,6 +67,7 @@ class OpenDocumentTemplate {
             'out_file' => $out_file
         );
         
+        //populate data to object property
         $this->data = $data;
         switch ($this->mimetype) {
             case 'application/vnd.oasis.opendocument.spreadsheet':
