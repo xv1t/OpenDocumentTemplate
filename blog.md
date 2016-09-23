@@ -30,6 +30,6 @@ Data example
 Row ODS
 
 
-pos | name | image |
------------- | -------------|----
-[position]|  [Person.name] | [Person.image]
+Range | pos | name | image |
+------ | -------|----|---
+People | [position]|  [Person.name] | [Person.image]
