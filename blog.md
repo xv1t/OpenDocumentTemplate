@@ -29,7 +29,27 @@ Data example
 ```
 Row ODS
 
-
 Range | pos | name | image |
 ------ | -------|----|---
 People | [position]|  [Person.name] | [Person.image]
+
+Import image to ods file, and achor it to cell with `[Person.image]`.
+All images are must be a `Protect size`!
+
+Well, in `ods_render_row`
+```php
+<?php
+function ods_render(...){
+...
+  foreach ($cells as $cell){
+    ...
+    //parse value
+    
+    //check if cell contain a `draw:frame`
+    $
+    
+  }
+
+...
+}
+```
