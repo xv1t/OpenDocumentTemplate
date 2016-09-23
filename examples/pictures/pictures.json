@@ -8,28 +8,64 @@
             "Person": {
                 "name": "Took Adalva",
                 "title": "Izvr Magistr",
-                "image_href": "img/acroread.png"                
+                "image": "acroread.png",
+                "money": 12.34
             }
         },
         {
             "Person": {
                 "name": "Googve",
                 "title": "Devon Otver",
-                "image_href": "img/im-status-message-edit.png"                
+                "image": "im-status-message-edit.png",
+                "money": 6.7
             }
         },
         {
             "Person": {
                 "name": "Boorva",
                 "title": "Grevuan Octanr",
-                "image_href": "img/kmplayer.png"                
+                "image": "kmplayer.png"       ,
+                "money": 0
             }
         },
         {
             "Person": {
                 "name": "Grigge",
                 "title": "Fuurm Horsd",
-                "image_href": false
+                "image": false,
+                "money": 15.76
+            }
+        },
+        {
+            "Person": {
+                "name": "muarge",
+                "title": "Thimd",
+                "image": "ktip.png",
+                "money": 15.76
+            }
+        },
+        {
+            "Person": {
+                "name": "Jant",
+                "title": "Qwerbg",
+                "image": "utilities-file-archiver.png",
+                "money": 10.54
+            }
+        },
+        {
+            "Person": {
+                "name": "Tika",
+                "title": "Qwerbg",
+                "image": "acroread.png",
+                "money": 3.45
+            }
+        },
+        {
+            "Person": {
+                "name": "Atlam",
+                "title": "--",
+                "image": "video-display.png",
+                "money": 0.6
             }
         }
     ]

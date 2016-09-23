@@ -36,7 +36,7 @@ class OpenDocumentTemplate {
      * Options
      * </p>
      */
-    function open($template_file, $out_file, $data, $options = array()) {
+    public function open($template_file, $out_file, $data, $options = array()) {
         if (empty($this->dom)) {
             $this->dom = new DOMDocument;
         }
@@ -99,8 +99,12 @@ class OpenDocumentTemplate {
         $zip->open($out_file);
 
         $content = $this->dom->saveXml();
+        
+        if (!empty($options['extract_content'])){
+            file_put_contents($out_file . '-content.xml', $content);
+        }
 
-        //file_put_contents($out_file . '-content.xml', $content);
+        //
 
         $zip->addFromString('content.xml', $content);
 
@@ -156,6 +160,34 @@ class OpenDocumentTemplate {
             if (strpos($pair['name'], 'SUM(') === 0) {
                 $pair['func'] = 'sum';
                 list($one, $two) = explode('SUM(', $pair['name']);
+                $prm_str = explode(')', $two);
+                $params1 = explode(',', $prm_str[0]);
+                $pair['params'] = array();
+                foreach ($params1 as $prm) {
+                    $param = ltrim(rtrim($prm));
+                    if ($param) {
+                        $pair['params'][] = $param;
+                    }
+                }
+            }
+            
+            if (strpos($pair['name'], 'MAX(') === 0) {
+                $pair['func'] = 'max';
+                list($one, $two) = explode('MAX(', $pair['name']);
+                $prm_str = explode(')', $two);
+                $params1 = explode(',', $prm_str[0]);
+                $pair['params'] = array();
+                foreach ($params1 as $prm) {
+                    $param = ltrim(rtrim($prm));
+                    if ($param) {
+                        $pair['params'][] = $param;
+                    }
+                }
+            }
+            
+            if (strpos($pair['name'], 'MIN(') === 0) {
+                $pair['func'] = 'min';
+                list($one, $two) = explode('MIN(', $pair['name']);
                 $prm_str = explode(')', $two);
                 $params1 = explode(',', $prm_str[0]);
                 $pair['params'] = array();
@@ -280,10 +312,20 @@ class OpenDocumentTemplate {
         $this->ods_sheet('DEBUG')->appendChild($row);
     }
 
-    function ods_analyze() {
-        //Read named ranges
-        $this->schema = array();
-
+    /*
+     * return ranges with level=1
+     */
+    function ods_level1_ranges() {
+        $level0ranges = array();
+        
+        foreach ($this->schema['named-range'] as $range){
+            
+        }
+        
+        return $level0ranges;
+    }
+    
+    function ods_analyze_ranges() {
         $nlist = array();
 
         foreach ($this->dom->getElementsByTagName('named-range') as $named) {
@@ -325,85 +367,118 @@ class OpenDocumentTemplate {
             $this->schema['named-range'][$n['name']] = $n;
         }
         
+                
+        /*
+         * counting level1 ranges
+         */
+        
+        foreach ($this->schema['named-range'] as $range_name => $range){
+            if (array_key_exists($range_name, $this->data) ){
+                $this->data[ "COUNT($range_name)" ] = count( $this->data[ $range_name ] );
+            }
+            
+            $this->data += $this->ods_aggregate_data($range_name, $this->data);
+        }
+    }
+    
+    function ods_analyze_row_ranges($row) {
+
+        $row_ranges = $this->row_ranges($row->getAttribute('number'));
+
+        if ($row_ranges) {
+            
+            $from = $row->getAttribute('from');
+            
+            //analyze ranges with parent<>child
+            $level = count($row_ranges);
+
+            $last_row_range = end($row_ranges);
+
+            $row->setAttribute('range_name', $last_row_range);
+            $row->setAttribute('range_level', $level);
+
+            if ($from == $this->schema['named-range'][$last_row_range]['start']) {
+                $row->setAttribute('range_start', $last_row_range);
+            }
+
+            $end_ranges = array();
+
+            foreach ($this->schema['named-range'] as $tmprange) {
+                if ($from == $tmprange['end']) {
+                    $end_ranges[] = $tmprange['name'];
+                }
+            }
+
+            if ($end_ranges) {
+                $row->setAttribute('range_end', join(',', $end_ranges));
+            }
+
+            //Insert all used ranges 
+            $row->setAttribute('ranges', join(',', $row_ranges));
+
+            $this->schema['named-range'][$last_row_range]['level'] = $level;
+            if ($level > 1) {
+                $range_parent = $row_ranges[$level - 2];
+                $this->schema['named-range']
+                        [$last_row_range]
+                        ['parent'] = $range_parent;
+
+                $row->setAttribute('range_parent', $range_parent);
+                $this->schema['named-range']
+                        [$range_parent]
+                        ['children']
+                        [$last_row_range] = $last_row_range;
+
+            } else {
+
+                $this->schema['named-range'][$last_row_range]['parent'] = null;
+            }
+
+
+            foreach ($this->schema['named-range'] as $tmprange) {
+                if (in_array($tmprange['name'], $row_ranges)) {
+                    $this->schema['named-range']
+                            [$tmprange['name']]
+                            ['template_rows']
+                            [] = $row;
+                    //$this->dom->saveXml($row);
+                }
+            }
+        }
+        
+        return $row_ranges;
+    }
+    function ods_analyze() {
+        //Read named ranges
+        $this->schema = array();
+
+        $this->ods_analyze_ranges();
+        
         //Enumerate rows given row-repeated$this->schema['named-range']
         $rows = $this->dom
                 ->getElementsByTagName('table')->item(0)
                 ->getElementsByTagName('table-row');
         $number = 1;
         $this->schema['rows'] = array();
+
+        
         foreach ($rows as $row) {
 
             $repeated = $row->getAttribute('table:number-rows-repeated')
                     ? : 1;
 
             $from = $number;
-            $row_id = "row" . $number;
+            //$row_id = "row" . $number;
             $to = $number + $repeated - 1;
 
             //mark row elements
             $row->setAttribute('from', $from);
             $row->setAttribute('to', $to);
-            $row->setAttribute('id', $row_id);
+            $row->setAttribute('number', $number);
+            //$row->setAttribute('id', $row_id);
             
-            $row_ranges = $this->row_ranges($number);
-
-            if ($row_ranges) {
-                //analyze ranges with parent<>child
-                $level = count($row_ranges);
-
-                $last_row_range = end($row_ranges);
-
-                $row->setAttribute('range_name', $last_row_range);
-                $row->setAttribute('range_level', $level);
-
-                if ($from == $this->schema['named-range'][$last_row_range]['start']) {
-                    $row->setAttribute('range_start', $last_row_range);
-                }
-
-                $end_ranges = array();
-
-                foreach ($this->schema['named-range'] as $tmprange) {
-                    if ($from == $tmprange['end']) {
-                        $end_ranges[] = $tmprange['name'];
-                    }
-                }
-
-                if ($end_ranges) {
-                    $row->setAttribute('range_end', join(',', $end_ranges));
-                }
-
-                //Insert all used ranges 
-                $row->setAttribute('ranges', join(',', $row_ranges));
-
-                $this->schema['named-range'][$last_row_range]['level'] = $level;
-                if ($level > 1) {
-                    $range_parent = $row_ranges[$level - 2];
-                    $this->schema['named-range']
-                            [$last_row_range]
-                            ['parent'] = $range_parent;
-
-                    $row->setAttribute('range_parent', $range_parent);
-                    $this->schema['named-range']
-                            [$range_parent]
-                            ['children']
-                            [$last_row_range] = $last_row_range;
-
-                } else {
-
-                    $this->schema['named-range'][$last_row_range]['parent'] = null;
-                }
-
-
-                foreach ($this->schema['named-range'] as $tmprange) {
-                    if (in_array($tmprange['name'], $row_ranges)) {
-                        $this->schema['named-range']
-                                [$tmprange['name']]
-                                ['template_rows']
-                                [] = $row;
-                        //$this->dom->saveXml($row);
-                    }
-                }
-            }
+            $row_ranges = $this->ods_analyze_row_ranges($row);
+            
             //cells
             $cells = $row->getElementsByTagName('table-cell');
             $this->schema['rows'][] = compact('from', 'repeated', 'to', 'row_id') +
@@ -415,7 +490,6 @@ class OpenDocumentTemplate {
             //read cells
 
             $this->ods_render_row($row, $this->data);
-
 
             $number += $repeated;
         }
@@ -461,17 +535,66 @@ class OpenDocumentTemplate {
                 }
             }
             
-            //analyze images
-            //$frames = $this->dom_elements2array( $cell->getElementsByTagname('frame') );
-            
-           // foreach ($frames as $frame){
-               // $image = $frame->getElementsByTagName('image')->item(0);
-               // $image->setAttribute('xlink:href', 'Pictures/img/view-pim-tasks.png');
-            //}
-            
+            $this->ods_render_cell_images($cell, $data);            
         
         }
         return $row;
+    }
+    
+    private function ods_render_cell_images($cell, $data){
+        //analyze images
+        $frames = $this->dom_elements2array( $cell->getElementsByTagname('frame') );
+        if ($frames){
+            foreach ($frames as $frame){
+                $frame_name = $frame->getAttribute('draw:name');
+
+                if ($this->parse_string_is_once_param($frame_name)){
+                    $param_key = $this->parse_string_extract_param($frame_name);
+
+                    if ($this->parse_param_exists($param_key, $data)){
+                        $image_name = $this->parse_param_value($param_key, $data);
+                        //var_dump($val);
+                        if (is_string($image_name)){
+                            $draw = $frame->getElementsByTagName('image')->item(0);
+                            $draw->setAttribute('xlink:href', 'Pictures/' . $image_name);
+                            
+                            
+                            
+                        } else {
+                            //remove draw element
+                            $frame->parentNode->removeChild($frame);
+                        }
+                    }
+
+                }
+
+                /*
+                 * path frame style to size:protect
+                 */
+
+                $style_name = $frame->getAttribute('draw:style-name');
+
+                if (!array_key_exists('patched_styles', $this->schema)){
+                    $this->schema['patched_styles'] = array();
+                }
+
+                if (!in_array($style_name, $this->schema['patched_styles']) ){
+
+                    foreach($this->dom->getElementsByTagName('style') as $style){
+                        if ($style->getAttribute('style:name') == $style_name){
+                            
+                            $gr = $style->getElementsByTagName('graphic-properties')
+                                    ->item(0);
+                            //print_r($gr);
+                            $gr->setAttribute('style:protect', 'size');
+
+                            $this->schema['patched_styles'][ $style_name ] =
+                                    $style_name;
+                        }
+                    }
+                }                
+            }
+        }
     }
 
     function dom_elements2array($elements){
@@ -751,12 +874,12 @@ class OpenDocumentTemplate {
                     $relativePath = substr($filePath, strlen($source_dir) + 1);
 
                     $added_files[] = array(
-                        'path' => $zip_dest_dir . '/' . $name,
+                        'path' => $zip_dest_dir . '/' . basename($name),
                         'mime' => mime_content_type($filePath)
                     );
                     //echo print_r( compact('name', 'file', 'filePath', 'relativePath') );
                     // Add current file to archive
-                    $zip->addFile($filePath, $zip_dest_dir . '/' . $name );
+                    $zip->addFile($filePath, $zip_dest_dir . '/' . basename($name) );
                     
                 }
             }        
