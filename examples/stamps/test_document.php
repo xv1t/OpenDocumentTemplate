@@ -4,7 +4,7 @@ require '../../OpenDocumentTemplate.php';
 
 $od = new OpenDocumentTemplate();
 
-$od->open('pictures.ods', 'pictures-out.ods', 'pictures.json', array(
+$od->open('document_bill.ods', 'document_bill-out.ods', 'documents.json', array(
     'with_image_dir' => 'img',
     'extract_content' => true
 ));

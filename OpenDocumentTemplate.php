@@ -19,7 +19,9 @@ class OpenDocumentTemplate {
         'after' => ']',
         'separator' => '.'
     );
+    var $used_images = array(); //list of 
     var $mimetype; //of current open file
+    var $virtualFields = array();
     
     /**
      * Open a template file, read him, and write result to a out_file
@@ -134,6 +136,15 @@ class OpenDocumentTemplate {
         $zip->close();
     }
     
+   function delete_from_manifest($filename){
+       $file_entries = $this->dom_elements2array( $this->dom->getElementsByTagName('file-entry') );
+       foreach ($file_entries as $file_entry){
+           if ( $file_entry->getAttribute('manifest:full-path') == $filename ){
+               $file_entry->parentNode->removeChildren( $file_entry );
+           }
+       }
+   }
+   
    function write_manifest($files = array()){
        $manifest = $this->dom->getElementsByTagName('manifest')->item(0);
        
@@ -453,10 +464,59 @@ class OpenDocumentTemplate {
                     //$this->dom->saveXml($row);
                 }
             }
+            
+            //analyze virtualFields, in office:annotations
+            $office_annotationa = $row->getElementsByTagName('annotation');
+            if ($office_annotationa->length > 0) {
+                foreach ($office_annotationa as $item){
+                    $p = $item->getElementsByTagName('p')->item(0);
+                    $expression = $p->nodeValue;
+                    
+                    $fieldName = $item->parentNode->lastChild->nodeValue; //->firstChild->nodeValue;
+                    $expr = $this->ods_is_string_expression($expression)
+                            ? 'true' : 'false';
+                    print_r(compact('expression', 'fieldName', 'expr'));
+                }
+            }
         }
         
         return $row_ranges;
     }
+    
+    //http://ru.stackoverflow.com/questions/454598/%D0%92%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B2-%D1%81%D1%82%D1%80%D0%BE%D0%BA%D0%B5
+    //http://stackoverflow.com/questions/18880772/calculate-math-expression-from-a-string-using-eval
+    private function parse_string_expression($string){
+        $newfunc = create_function('', 'return 1+3+3+4+45.4;');
+        $val = $newfunc();
+        unset($newfunc);
+    }
+    
+    /*
+     * "[Good.price] * [Good.count]" is ok
+     */
+    private function ods_is_string_expression($string){
+        $string = str_replace(array(
+            ' ',
+            '+',
+            '-',
+            '*',
+            '/',
+            '(',
+            ')'
+        ), array(
+            '',
+            '<BR>',
+            '<BR>',
+            '<BR>',
+            '<BR>',
+            '<BR>',
+            '<BR>',
+        ), $string);
+        $parts = explode('<BR>', $string);
+        return count($parts) > 1;
+                
+    }
+    
     function ods_analyze() {
         //Read named ranges
         $this->schema = array();
@@ -556,6 +616,7 @@ class OpenDocumentTemplate {
         if ($frames){
             foreach ($frames as $frame){
                 $frame_name = $frame->getAttribute('draw:name');
+                $image_name = false;
 
                 if ($this->parse_string_is_once_param($frame_name)){
                     $param_key = $this->parse_string_extract_param($frame_name);
@@ -564,9 +625,9 @@ class OpenDocumentTemplate {
                         $image_name = $this->parse_param_value($param_key, $data);
                         //var_dump($val);
                         if (is_string($image_name)){
-                            $draw = $frame->getElementsByTagName('image')->item(0);
-                            $draw->setAttribute('xlink:href', 'Pictures/' . $image_name);
-                            
+                            $image_name = 'Pictures/' . $image_name;
+                            $draw = $frame->getElementsByTagName('image')->item(0);                            
+                            $draw->setAttribute('xlink:href', $image_name);                            
                             
                             
                         } else {
@@ -575,6 +636,13 @@ class OpenDocumentTemplate {
                         }
                     }
 
+                } else {
+                    $draw = $frame->getElementsByTagName('image')->item(0);    
+                    $image_name = $draw->getAttribute('xlink:href');
+                }
+                
+                if ($image_name){
+                    $this->used_images[$image_name] = $image_name;
                 }
 
                 /*
@@ -888,7 +956,12 @@ class OpenDocumentTemplate {
                     );
                     //echo print_r( compact('name', 'file', 'filePath', 'relativePath') );
                     // Add current file to archive
-                    $zip->addFile($filePath, $zip_dest_dir . '/' . basename($name) );
+                    $file_name = $zip_dest_dir . '/' . basename($name);
+                    
+                    //add files only was used images in sheet
+                    if (in_array($file_name, $this->used_images)){
+                        $zip->addFile($filePath,  $file_name);
+                    }
                     
                 }
             }        
