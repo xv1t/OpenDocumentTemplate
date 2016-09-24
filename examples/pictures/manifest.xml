@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest:manifest xmlns:manifest="urn:oasis:names:tc:opendocument:xmlns:manifest:1.0" manifest:version="1.2">
+ <manifest:file-entry manifest:full-path="/" manifest:version="1.2" manifest:media-type="application/vnd.oasis.opendocument.spreadsheet"/>
+ <manifest:file-entry manifest:full-path="Thumbnails/thumbnail.png" manifest:media-type="image/png"/>
+ <manifest:file-entry manifest:full-path="settings.xml" manifest:media-type="text/xml"/>
+ <manifest:file-entry manifest:full-path="Pictures/100002010000010000000100CEAC010BC7EB06A3.png" manifest:media-type="image/png"/>
+ <manifest:file-entry manifest:full-path="Pictures/100002010000001600000016E597C3BB6B89CEFE.png" manifest:media-type="image/png"/>
+ <manifest:file-entry manifest:full-path="Pictures/100002010000001600000016B7AA301CC3D427AE.png" manifest:media-type="image/png"/>
+ <manifest:file-entry manifest:full-path="Pictures/1000020100000030000000308340316B7B9D5CCC.png" manifest:media-type="image/png"/>
+ <manifest:file-entry manifest:full-path="content.xml" manifest:media-type="text/xml"/>
+ <manifest:file-entry manifest:full-path="meta.xml" manifest:media-type="text/xml"/>
+ <manifest:file-entry manifest:full-path="styles.xml" manifest:media-type="text/xml"/>
+ <manifest:file-entry manifest:full-path="Configurations2/accelerator/current.xml" manifest:media-type=""/>
+ <manifest:file-entry manifest:full-path="Configurations2/" manifest:media-type="application/vnd.sun.xml.ui.configuration"/>
+ <manifest:file-entry manifest:full-path="manifest.rdf" manifest:media-type="application/rdf+xml"/>
+<manifest:file-entry manifest:full-path="Pictures/acroread.png" manifest:media-type="image/png"/><manifest:file-entry manifest:full-path="Pictures/video-display.png" manifest:media-type="image/png"/><manifest:file-entry manifest:full-path="Pictures/.directory" manifest:media-type="text/plain"/><manifest:file-entry manifest:full-path="Pictures/utilities-file-archiver.png" manifest:media-type="image/png"/><manifest:file-entry manifest:full-path="Pictures/ktip.png" manifest:media-type="image/png"/><manifest:file-entry manifest:full-path="Pictures/application-x-zerosize.png" manifest:media-type="image/png"/><manifest:file-entry manifest:full-path="Pictures/kmplayer.png" manifest:media-type="image/png"/><manifest:file-entry manifest:full-path="Pictures/preferences-desktop-cryptography.png" manifest:media-type="image/png"/><manifest:file-entry manifest:full-path="Pictures/application-x-smb-server.png" manifest:media-type="image/png"/><manifest:file-entry manifest:full-path="Pictures/im-status-message-edit.png" manifest:media-type="image/png"/><manifest:file-entry manifest:full-path="Pictures/view-pim-tasks.png" manifest:media-type="image/png"/><manifest:file-entry manifest:full-path="Pictures/application-x-smb-workgroup.png" manifest:media-type="image/png"/><manifest:file-entry manifest:full-path="Pictures/view-pim-notes.png" manifest:media-type="image/png"/></manifest:manifest>

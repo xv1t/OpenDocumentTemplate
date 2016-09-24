@@ -22,6 +22,7 @@ class OpenDocumentTemplate {
     var $used_images = array(); //list of 
     var $mimetype; //of current open file
     var $virtualFields = array();
+    var $hasFormula = false;
     
     /**
      * Open a template file, read him, and write result to a out_file
@@ -475,17 +476,31 @@ class OpenDocumentTemplate {
                     $fieldName = $item->parentNode->lastChild->nodeValue; //->firstChild->nodeValue;
                     $expr = $this->ods_is_string_expression($expression)
                             ? 'true' : 'false';
-                    print_r(compact('expression', 'fieldName', 'expr'));
+                    //print_r(compact('expression', 'fieldName', 'expr'));
+                    
+                    if ($this->ods_is_string_expression($expression)){
+                        $this->schema['named-range'][ $last_row_range ]['virtualFields'][ $fieldName ] =
+                            $expression;
+                    }
+                            
                 }
             }
-        }
+        } //if $row_nages
         
         return $row_ranges;
     }
     
     //http://ru.stackoverflow.com/questions/454598/%D0%92%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B2-%D1%81%D1%82%D1%80%D0%BE%D0%BA%D0%B5
     //http://stackoverflow.com/questions/18880772/calculate-math-expression-from-a-string-using-eval
-    private function parse_string_expression($string){
+    private function parse_string_expression($string, $data = array()){
+        
+        $string = $this->parse_string($string, $data);
+        
+        /*
+         * check is string is contains ONLY DIGITS and
+         * operations!, and not contain not parsed [param] strings parts
+         */
+        
         $newfunc = create_function('', 'return 1+3+3+4+45.4;');
         $val = $newfunc();
         unset($newfunc);
@@ -917,6 +932,7 @@ class OpenDocumentTemplate {
             
             //clear to_empty rows
             $remove_rows = array();
+            
             foreach ($sheet->getElementsByTagName('table-row') as $row){
                 if ($row->hasAttribute('remove_me_please')){
                     $remove_rows[] = $row;
@@ -927,7 +943,32 @@ class OpenDocumentTemplate {
                 $row->parentNode->removeChild($row);
             }
             
+            //after this - rows count is CONSTANT
+            if (!empty( $this->hasFormula )){
+                $this->ods_recover_formula();
+            }
+            
         }
+    }
+    
+    /*
+     * Recover cells cover
+     */
+    function ods_recover_formula(){
+        /*
+         * mark numbers of row
+         */
+        
+        /*
+         * get cells with formula
+         */
+        
+        /*
+         * check attribute
+         * table:formula="of:=[.E10]*[.D10]" 
+         *                       ^^     ^^
+         *                   This row number need to check
+         */
     }
     
     //add custom dir to zip
