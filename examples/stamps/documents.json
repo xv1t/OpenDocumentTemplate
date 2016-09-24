@@ -12,6 +12,13 @@
                 "cost":  6.45,
                 "count": 4
             }
+        },
+        {
+            "Good": {
+                "name": "Disk",
+                "cost":  0.17,
+                "count": 3
+            }
         }
     ]
 }

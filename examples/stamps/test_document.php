@@ -10,6 +10,6 @@ $od->open('document_bill.ods', 'document_bill-out.ods', 'documents.json', array(
 ));
 
 //print_r($od->meta);
-//print_r($od->schema);
+print_r($od->schema);
 
-print_r($od->used_images);
+//print_r($od->used_images);
