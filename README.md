@@ -54,6 +54,7 @@ $data = array(
 Open the LibreOffice Calc. Create new spreedsheet;
 
 add a 3 cells for next contents:
+
 A   | B |   C
 ----|---|----
 [Report.name] | [Report.date] | [Report.author]
