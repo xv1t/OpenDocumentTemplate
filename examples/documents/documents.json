@@ -1,0 +1,85 @@
+{
+    "Document": {
+        "name": "Bill",
+        "number": "123/A9",
+        "date": "2016-09-23",
+        "manager": "Gretto Uzz",
+        "stamp": "stamp_open_doc_template.png",
+        "sign": "sign_open_doc_template.png"
+    },
+    "Supplier": {
+        "name": "Open source shot test",
+        "address": "The city of the country, 123-23FZ",
+        "email": "mail@example.free"        
+    },
+    "Buyer": {
+        "name": "Typical customer",
+        "address": "My country",
+        "email": "mail@sample.com"                
+    },
+    "Goods": [
+        {
+            "Good": {
+                "name": "Cofee",
+                "cost":  6.45,
+                "count": 4
+            }
+        },
+        {
+            "Good": {
+                "name": "Disk",
+                "cost":  0.17,
+                "count": 3
+            }
+        },
+        {
+            "Good": {
+                "name": "Book",
+                "cost":  2.30,
+                "count": 3
+            }
+        },
+        {
+            "Good": {
+                "name": "USB Flash",
+                "cost":  19,
+                "count": 2
+            }
+        },
+        {
+            "Good": {
+                "name": "Floppy disk",
+                "cost":  1.01,
+                "count": 10
+            }
+        },
+        {
+            "Good": {
+                "name": "Manual PDF",
+                "cost":  0.0,
+                "count": 1
+            }
+        },
+        {
+            "Good": {
+                "name": "Hat",
+                "cost":  17.34,
+                "count": 7
+            }
+        },
+        {
+            "Good": {
+                "name": "Pen",
+                "cost":  0.87,
+                "count": 26
+            }
+        },
+        {
+            "Good": {
+                "name": "Keyboard AB",
+                "cost":  16.04,
+                "count": 8
+            }
+        }
+    ]
+}

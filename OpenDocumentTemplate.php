@@ -132,6 +132,10 @@ class OpenDocumentTemplate {
             }
         }
         
+        if (!empty($options['dom_stay'])){
+            $this->dom->loadXML($content);
+        }
+        
         //find unused images and and delete from zip
 
         $zip->close();
@@ -391,6 +395,8 @@ class OpenDocumentTemplate {
         foreach ($this->schema['named-range'] as $range_name => $range){
             if (array_key_exists($range_name, $this->data) ){
                 $this->data[ "COUNT($range_name)" ] = count( $this->data[ $range_name ] );
+                
+                
             }
             
             $this->data += $this->ods_aggregate_data($range_name, $this->data);
@@ -469,6 +475,7 @@ class OpenDocumentTemplate {
             //analyze virtualFields, in office:annotations
             $office_annotationa = $row->getElementsByTagName('annotation');
             if ($office_annotationa->length > 0) {
+                $office_annotationa = $this->dom_elements2array($office_annotationa);
                 foreach ($office_annotationa as $item){
                     $p = $item->getElementsByTagName('p')->item(0);
                     $expression = $p->nodeValue;
@@ -479,8 +486,13 @@ class OpenDocumentTemplate {
                     //print_r(compact('expression', 'fieldName', 'expr'));
                     
                     if ($this->ods_is_string_expression($expression)){
-                        $this->schema['named-range'][ $last_row_range ]['virtualFields'][ $fieldName ] =
+                        $this->schema['named-range']
+                                [ $last_row_range ]
+                                ['virtualFields']
+                                [ $fieldName ] =
                             $expression;
+                        
+                     $item->parentNode->removeChild($item);
                     }
                             
                 }
@@ -494,16 +506,24 @@ class OpenDocumentTemplate {
     //http://stackoverflow.com/questions/18880772/calculate-math-expression-from-a-string-using-eval
     private function parse_string_expression($string, $data = array()){
         
-        $string = $this->parse_string($string, $data);
+        $string1 = $this->parse_string($string, $data);
         
         /*
          * check is string is contains ONLY DIGITS and
          * operations!, and not contain not parsed [param] strings parts
          */
         
-        $newfunc = create_function('', 'return 1+3+3+4+45.4;');
-        $val = $newfunc();
-        unset($newfunc);
+        try {
+            $newfunc = create_function('', "return $string1;");
+            $val = $newfunc();
+            unset($newfunc);
+            return $val;
+            
+        } catch (Exception $exc) {
+            //echo $exc->getTraceAsString();
+            //function error
+            return "#ERROR";
+        }
     }
     
     /*
@@ -573,9 +593,45 @@ class OpenDocumentTemplate {
 
             //read cells
 
-            $this->ods_render_row($row, $this->data);
+            
 
             $number += $repeated;
+        }
+        
+        //virtual fields
+        //$this->ods_populate_virtual_fields($range_name, $data)
+        
+        //
+        
+        foreach ($this->ods_level1_ranges() as $range_name){
+            $this->ods_populate_virtual_fields($range_name, $this->data);
+            
+            $aggregates = $this->ods_aggregate_data($range_name, $this->data);
+            
+            if ($aggregates){
+                foreach ($aggregates as $key => $val){
+                    $this->data[$key] = $val;
+                }
+            }
+            
+            
+            
+        }
+        
+        //print_r($this->data);
+        //render rows - separate!! cycle
+        foreach ($rows as $row) {
+            $this->ods_render_row($row, $this->data);
+        }
+    }
+    
+    function ods_clean_data(&$data){
+        foreach ($data as $key => $datum){
+            if (is_array($data[$key])){
+                if (array_key_exists('__rows__', $datum[$key]) ){
+                    unset($data[$key]['__rows__']);
+                }
+            }
         }
     }
 
@@ -721,7 +777,6 @@ class OpenDocumentTemplate {
     function ods_aggregate_data($range_name, $data) {
         $result = array();
 
-
         foreach ($this->meta as $name => $options) {
             //sums
             if ($options['func'] == 'sum' && $options['value'] == $range_name) {
@@ -758,16 +813,31 @@ class OpenDocumentTemplate {
         if (array_key_exists($range_name, $data) && is_array($data[$range_name])) {
             //render objects, cycling data
             foreach ($data[$range_name] as $i => $datum) { 
+                
+
+                
                 //Aggregate values from children
                 if (!empty($range['children'])) {
 
                     foreach ($range['children'] as $children_range) {
+                        
+                        $children_range_object = $this->schema['named-range'][$children_range];
+                        
                         $data[$range_name][$i]["COUNT($children_range)"] = 0;
-                        if (array_key_exists($children_range, $datum)) {
-                            $data[$range_name][$i]["COUNT($children_range)"] = count($datum[$children_range]);
+                        if (array_key_exists($children_range, $data[$range_name][$i])) {
+                            $data[$range_name][$i]["COUNT($children_range)"] = 
+                                    count($data[$range_name][$i]
+                                            [$children_range]);
                         }
+                        
+                        //
+                        $this->ods_populate_virtual_fields($children_range, $data[$range_name][$i]);
+                        
                         //stat from document_options, functions
-                        $data[$range_name][$i] += $this->ods_aggregate_data($children_range, $data[$range_name][$i]);
+                        $data[$range_name][$i] += $this->ods_aggregate_data(
+                                $children_range, 
+                                $data[$range_name][$i]
+                            );
                     }
                 }
                 
@@ -869,6 +939,46 @@ class OpenDocumentTemplate {
              */
         } //if
         return $result_render_rows;
+    }
+    
+    function ods_range($range_name){
+        return $this->schema['named-range'][$range_name];
+    }
+    
+    function ods_populate_virtual_fields($range_name, &$data){
+        
+         //virtual fields
+        $range = $this->ods_range($range_name);
+
+        
+        if (!empty($range['virtualFields'])){
+            foreach ($range['virtualFields'] as $virtualField => $xpression){
+                if ( $this->parse_string_is_once_param($virtualField) ){
+                    $param_key = 
+                         $this->parse_string_extract_param($virtualField);
+
+                    //parse expression
+
+                    //populate exprassion virtual fields on on children data
+                    if (array_key_exists($range_name, $data)){
+                        foreach ($data[$range_name] as $k => $datum){
+
+
+                    $val = $this->parse_string_expression(
+                            $xpression, 
+                            $data[$range_name][$k]);
+
+                    $this->parse_create_param(
+                            $param_key, 
+                            $data[$range_name][$k],
+                            $val
+                            );
+                        }
+                    }
+                }                        
+            }
+        }         
+        
     }
 
     function ods_analyze_data() {
@@ -1022,6 +1132,41 @@ class OpenDocumentTemplate {
         return false;
     }
 
+    
+    function parse_create_param($param_key, &$data, $value = null){
+        $chains = $this->parse_param_chain($param_key);
+        switch (count($chains)) {
+            case 1:
+                $data[$param_key] = $value;
+
+                break;
+            case 2:
+                $data
+                    [$chains[0]] 
+                    [$chains[1]]                     
+                    = $value;
+                break;
+            case 3:
+                $data
+                    [$chains[0]] 
+                    [$chains[1]]                     
+                    [$chains[2]]                     
+                    = $value;
+                break;
+            case 4:
+                $data
+                    [$chains[0]] 
+                    [$chains[1]]                     
+                    [$chains[2]]                     
+                    [$chains[3]]                     
+                    = $value;
+                break;
+
+            default:
+                break;
+        }
+    }
+    
     /*
       parse_string_extract_param('[Model.name]'); // 'Model.name'
      */
