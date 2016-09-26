@@ -91,6 +91,55 @@ $data = array(
 );
 ```
 
+All `Cities` object must be have an identical list of the fields
+```php
+<?php
+
+//Sample of one City object
+array(
+    'City' => array(
+        'name' => 'Albatros',
+        'streets' => 165,
+        'population' => 1300000
+    )
+);
+```
+
+And  all data
+```php
+$data = array(
+    'Report' => array(
+        'name' => 'Test Report',
+        'date' => '2016-09-25',
+        'author' => 'Me'
+    ),
+    'Cities' => array(
+        array( //first object
+            'City' => array(
+                'name' => 'Albatros',
+                'streets' => 165,
+                'population' => 1300000
+            )
+        ),
+        array( //next object
+            'City' => array(
+                'name' => 'Turtuga',
+                'streets' => 132,
+                'population' => 750000
+            )
+        ),
+        array( //next object
+            'City' => array(
+                'name' => 'Palmtown',
+                'streets' => 18,
+                'population' => 10000
+            )
+        ),
+    )
+);
+```
+
+
 # Examples
 
 
