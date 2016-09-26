@@ -139,7 +139,7 @@ $data = array(
 );
 ```
 ## Add a other object as linear dimesion 
-Add inforamation about the mayorof the each city
+Add inforamation about the mayor of the each city, in the sibling key `Mayor`
 ```php
 <?php
 
@@ -172,6 +172,8 @@ $data = array(
 ```
 
 ## Add third dimesions
+Add a key `Squares` for the list of the squares in the each city
+
 ```php
 <?php
 $data = array(
