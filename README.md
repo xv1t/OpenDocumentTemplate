@@ -230,8 +230,8 @@ And out `$data` finish version:
 $data = array(
     //level1
     'Report' => array(
-        'name' => 'Test Report',
-        'date' => '2016-09-25',
+        'name'   => 'Test Report',
+        'date'   => '2016-09-25',
         'author' => 'Me'
     ),
     'Cities' => array(
