@@ -91,7 +91,7 @@ $data = array(
 );
 ```
 
-All `Cities` object must be have an identical list of the fields
+All `Cities` object must be have an identical list of the fields. In our example: `name`, `streets`, `population`
 ```php
 <?php
 
