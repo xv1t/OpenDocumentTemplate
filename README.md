@@ -38,6 +38,8 @@ include_once "OpenDocumentTemplate.php";
 $template = new OpenDocumentTemplate();
 ```
 
+#First simple report
+
 ## Prepare your data
 Data is array in php
 ```php
@@ -70,6 +72,20 @@ And open new file `sample_report-out.ods` and you see in table:
 A   | B |   C
 ----|---|----
 Test Report | 2016-09-25 | Me
+
+## Add second dimension
+Add a key `Cities` for the list of objects
+```php
+$data = array(
+    'Report' => array(/* main Report data */),
+    'Cities' => array(
+        array(/* city data */),
+        array(/* city data */),
+        array(/* city data */),
+        array(/* city data */),
+    )
+);
+```
 
 # Examples
 
