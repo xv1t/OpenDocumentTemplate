@@ -211,6 +211,111 @@ $data = array(
     )
 );
 ```
+Example Square object:
+```php
+<?php
+array(
+    'Sqaure' => array(
+        'name' => 'Trafalgaar',
+        'length' => 23,
+        'width' => 45
+    )
+)
+```
+
+And out `$data` finish version:
+```php
+<?php
+
+$data = array(
+    'Report' => array(/*...*/),
+    'Cities' => array(
+        array(
+            'City' => array(/*...*/),
+            'Mayor' => array(
+                'name' => 'John Do',
+                'old' => 47
+            ),
+            'Squares' => array(
+                array(
+                    'Sqaure' => array(
+                        'name' => 'Trafalgaar',
+                        'length' => 23,
+                        'width' => 45
+                    )
+                ),
+                array(
+                    'Sqaure' => array(
+                        'name' => 'Square #2',
+                        'length' => 23,
+                        'width' => 45
+                    )
+                ),
+                array(
+                    'Sqaure' => array(
+                        'name' => 'Square #3',
+                        'length' => 23,
+                        'width' => 45
+                    )
+                ),
+            )
+        ),
+        array(
+            'City' => array(/*...*/),
+            'Mayor' => array(
+                'name' => 'Mary Ann',
+                'old' => 32
+            ),
+            'Squares' => array(
+                array(
+                    'Sqaure' => array(
+                        'name' => 'Square #4',
+                        'length' => 23,
+                        'width' => 45
+                    )
+                ),
+                array(
+                    'Sqaure' => array(
+                        'name' => 'Square #5',
+                        'length' => 23,
+                        'width' => 45
+                    )
+                ),
+            )
+        ),
+        array(
+            'City' => array(/*...*/),
+            'Mayor' => array(
+                'name' => 'Mike Tee',
+                'old' => 29
+            ),
+            'Squares' => array(
+                array(
+                    'Sqaure' => array(
+                        'name' => 'Square #6',
+                        'length' => 23,
+                        'width' => 45
+                    )
+                ),
+                array(
+                    'Sqaure' => array(
+                        'name' => 'Square #7',
+                        'length' => 23,
+                        'width' => 45
+                    )
+                ),
+                array(
+                    'Sqaure' => array(
+                        'name' => 'Square #8',
+                        'length' => 23,
+                        'width' => 45
+                    )
+                ),
+            )
+        ),
+    )
+);
+```
 
 # Examples
 
