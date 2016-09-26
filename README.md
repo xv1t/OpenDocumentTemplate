@@ -336,7 +336,9 @@ $data = array(
 );
 ```
 Well, we have a 3 level dimension array of objects:
+
 In LibreOffice Calc they are called `Range names`. 
+
 `Insert` -> `Names` => `Manage`
 
 
