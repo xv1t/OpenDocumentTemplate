@@ -229,102 +229,105 @@ And out `$data` finish version:
 
 $data = array(
     //level1
-    'Report' => array(/*...*/),
+    'Report' => array(
+        'name' => 'Test Report',
+        'date' => '2016-09-25',
+        'author' => 'Me'
+    ),
     'Cities' => array(
         array(
             //level 2
             'City' => array(
-                'name' => 'Albatros',
-                'streets' => 165,
+                'name'       => 'Albatros',
+                'streets'    => 165,
                 'population' => 1300000
             )
             'Mayor' => array(
                 'name' => 'John Do',
-                'old' => 47
+                'old'  => 47
             ),
             'Squares' => array(
                 array(
                     //level 3
                     'Sqaure' => array(
-                        'name' => 'Trafalgaar',
+                        'name'   => 'Trafalgaar',
                         'length' => 23,
-                        'width' => 45
+                        'width'  => 45
                     )
                 ),
                 array(
                     'Sqaure' => array(
-                        'name' => 'Square #2',
+                        'name'   => 'Square #2',
                         'length' => 23,
-                        'width' => 45
+                        'width'  => 45
                     )
                 ),
                 array(
                     'Sqaure' => array(
-                        'name' => 'Square #3',
+                        'name'   => 'Square #3',
                         'length' => 23,
-                        'width' => 45
+                        'width'  => 45
                     )
                 ),
             )
         ),
         array(
             'City' => array(
-                'name' => 'Turtuga',
-                'streets' => 132,
+                'name'       => 'Turtuga',
+                'streets'    => 132,
                 'population' => 750000
             )
             'Mayor' => array(
                 'name' => 'Mary Ann',
-                'old' => 32
+                'old'  => 32
             ),
             'Squares' => array(
                 array(
                     'Sqaure' => array(
-                        'name' => 'Square #4',
+                        'name'   => 'Square #4',
                         'length' => 23,
-                        'width' => 45
+                        'width'  => 45
                     )
                 ),
                 array(
                     'Sqaure' => array(
-                        'name' => 'Square #5',
+                        'name'   => 'Square #5',
                         'length' => 23,
-                        'width' => 45
+                        'width'  => 45
                     )
                 ),
             )
         ),
         array(
             'City' => array(
-                'name' => 'Palmtown',
-                'streets' => 18,
-                'population' => 10000
-            
+                'name'       => 'Palmtown',
+                'streets'    => 18,
+                'population' => 10000            
             ),
             'Mayor' => array(
                 'name' => 'Mike Tee',
-                'old' => 29
+                'old'  => 29
             ),
             'Squares' => array(
                 array(
                     'Sqaure' => array(
-                        'name' => 'Square #6',
+                        'name'   => 'Square #6',
                         'length' => 23,
-                        'width' => 45
+                        'width'  => 45
                     )
                 ),
                 array(
                     'Sqaure' => array(
-                        'name' => 'Square #7',
+                        'name'   => 'Square #7',
                         'length' => 23,
-                        'width' => 45
+                        'width'  => 45
                     )
                 ),
                 array(
                     'Sqaure' => array(
-                        'name' => 'Square #8',
+                        'name'   => 'Square #8',
                         'length' => 23,
-                        'width' => 45
+                        'width'  => 45
                     )
                 ),
             )
