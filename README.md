@@ -42,7 +42,10 @@ $template = new OpenDocumentTemplate();
 #First simple report
 
 ## Prepare your data
-Data is array in php
+Data - is array in php. Recommend all object fields group in object name.
+
+
+
 ```php
 <?php
 $data = array(
@@ -53,6 +56,8 @@ $data = array(
     )
 );
 ```
+All fields grouping in the `Report` parent array.
+This method of naming provides a powerful technique for multidimensional data.
 
 ## Design template file
 Open the LibreOffice Calc. Create new spreedsheet;
