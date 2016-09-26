@@ -31,6 +31,7 @@ Recommended sowfware for templating: LibreOffice 5
 ##Install
 Put file `OpenDocumentTemplate.php` into your project, and use it
 ```php
+<?php
 include_once "OpenDocumentTemplate.php";
 
 //create object
@@ -43,6 +44,7 @@ $template = new OpenDocumentTemplate();
 ## Prepare your data
 Data is array in php
 ```php
+<?php
 $data = array(
     'Report' => array(
         'name' => 'Test Report',
@@ -65,6 +67,7 @@ Save it with name `sample_report.ods`.
 
 ## Render template with data
 ```php
+<?php
 $template->open('sample_report.ods', 'sample_report-out.ods', $data)
 ```
 And open new file `sample_report-out.ods` and you see in table:
@@ -76,6 +79,7 @@ Test Report | 2016-09-25 | Me
 ## Add second dimension
 Add a key `Cities` for the list of objects
 ```php
+<?php
 $data = array(
     'Report' => array(/* main Report data */),
     'Cities' => array(
