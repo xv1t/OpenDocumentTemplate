@@ -299,8 +299,8 @@ $data = array(
                 'name' => 'Palmtown',
                 'streets' => 18,
                 'population' => 10000
-            )
-        ),
+            
+            ),
             'Mayor' => array(
                 'name' => 'Mike Tee',
                 'old' => 29
