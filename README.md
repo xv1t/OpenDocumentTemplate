@@ -231,7 +231,11 @@ $data = array(
     'Report' => array(/*...*/),
     'Cities' => array(
         array(
-            'City' => array(/*...*/),
+            'City' => array(
+                'name' => 'Albatros',
+                'streets' => 165,
+                'population' => 1300000
+            )
             'Mayor' => array(
                 'name' => 'John Do',
                 'old' => 47
@@ -261,7 +265,11 @@ $data = array(
             )
         ),
         array(
-            'City' => array(/*...*/),
+            'City' => array(
+                'name' => 'Turtuga',
+                'streets' => 132,
+                'population' => 750000
+            )
             'Mayor' => array(
                 'name' => 'Mary Ann',
                 'old' => 32
@@ -284,7 +292,13 @@ $data = array(
             )
         ),
         array(
-            'City' => array(/*...*/),
+        array( //next object
+            'City' => array(
+                'name' => 'Palmtown',
+                'streets' => 18,
+                'population' => 10000
+            )
+        ),
             'Mayor' => array(
                 'name' => 'Mike Tee',
                 'old' => 29
