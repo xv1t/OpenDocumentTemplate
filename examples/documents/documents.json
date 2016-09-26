@@ -8,6 +8,7 @@
         "sign": "sign_open_doc_template.png"
     },
     "Supplier": {
+        "logo" : "logo_libre_office.jpg",
         "name": "Open source shot test",
         "address": "The city of the country, 123-23FZ",
         "email": "mail@example.free"        

@@ -1081,6 +1081,24 @@ class OpenDocumentTemplate {
          */
     }
     
+    function add_file($filename, $zip, $zip_dest_dir = 'Pictures'){
+        $added_files = array();
+        if (file_exists($filename)){
+            $added_files[] = array(
+                    'path' => $zip_dest_dir . '/' . basename($filename),
+                    'mime' => mime_content_type($filename)
+                );
+            
+            $zip_path = $zip_dest_dir . '/' .  basename($filename);
+            
+            if (in_array($zip_path, $this->used_images)){
+                    $zip->addFile($filename,  $zip_path);
+                }
+        }
+        
+        return $added_files;
+    }
+    
     //add custom dir to zip
     function dir_to_zip($zip, $source_dir, $zip_dest_dir){
         $added_files = array();

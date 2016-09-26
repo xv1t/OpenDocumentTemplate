@@ -20,4 +20,4 @@ $items = $xpath->query("table:table-row/table:table-cell[@table:number-rows-span
 //print_r($od->data);
 //print_r($od->schema['named-range']);
 
-//print_r($od->used_images);
+print_r($od->used_images);
