@@ -195,13 +195,14 @@ $data = array(
                 array(/*...*/),
                 array(/*...*/),
                 array(/*...*/),
+                array(/*...*/),
+                array(/*...*/),
             )
         ),
         array(
             'City'  => array(/*...*/),
             'Mayor' => array(/*...*/),
             'Squares' => array(
-                array(/*...*/),
                 array(/*...*/),
                 array(/*...*/),
             )
