@@ -228,9 +228,11 @@ And out `$data` finish version:
 <?php
 
 $data = array(
+    //level1
     'Report' => array(/*...*/),
     'Cities' => array(
         array(
+            //level 2
             'City' => array(
                 'name' => 'Albatros',
                 'streets' => 165,
@@ -242,6 +244,7 @@ $data = array(
             ),
             'Squares' => array(
                 array(
+                    //level 3
                     'Sqaure' => array(
                         'name' => 'Trafalgaar',
                         'length' => 23,
@@ -292,7 +295,6 @@ $data = array(
             )
         ),
         array(
-        array( //next object
             'City' => array(
                 'name' => 'Palmtown',
                 'streets' => 18,
