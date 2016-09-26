@@ -138,7 +138,76 @@ $data = array(
     )
 );
 ```
+## Add a other object as linear dimesion 
+Add inforamation about the mayorof the each city
+```php
+<?php
 
+$data = array(
+    'Report' => array(/*...*/),
+    'Cities' => array(
+        array(
+            'City' => array(/*...*/),
+            'Mayor' => array(
+                'name' => 'John Do',
+                'old' => 47
+            ),
+        ),
+        array(
+            'City' => array(/*...*/),
+            'Mayor' => array(
+                'name' => 'Mary Ann',
+                'old' => 32
+            ),
+        ),
+        array(
+            'City' => array(/*...*/),
+            'Mayor' => array(
+                'name' => 'Mike Tee',
+                'old' => 29
+            ),
+        ),
+    )
+);
+```
+
+## Add third dimesions
+```php
+<?php
+$data = array(
+    'Report' => array(/*...*/),
+    'Cities' => array(
+        array(
+            'City'  => array(/*...*/),
+            'Mayor' => array(/*...*/),
+            'Squares' => array(
+                array(/*...*/),
+                array(/*...*/),
+                array(/*...*/),
+            )
+        ),
+        array(
+            'City'  => array(/*...*/),
+            'Mayor' => array(/*...*/),
+            'Squares' => array(
+                array(/*...*/),
+                array(/*...*/),
+                array(/*...*/),
+            )
+        ),
+        array(
+            'City'  => array(/*...*/),
+            'Mayor' => array(/*...*/),
+            'Squares' => array(
+                array(/*...*/),
+                array(/*...*/),
+                array(/*...*/),
+            )
+        ),
+       
+    )
+);
+```
 
 # Examples
 
