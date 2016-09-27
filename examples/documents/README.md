@@ -22,9 +22,9 @@ stamp_libre_office_calc.png|stamp_open_doc_template.png|stamp_ubuntu.png
 ## Logos
 Picture | File
 ------|-----
-<img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_libre_office.jpg width="150"> |logo_libre_office.jpg
-<img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_open_doc_template.jpg width="150"> |logo_open_doc_template.jpg
-<img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_ubuntu.jpg width="150"> | logo_ubuntu.jpg
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_libre_office.jpg) |logo_libre_office.jpg
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_open_doc_template.jpg) |logo_open_doc_template.jpg
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_ubuntu.jpg) | logo_ubuntu.jpg
 
 ## Signs
 sign_empty.png | sign_libre_office_calc.png | sign_open_doc_template.png | sign_ubuntu.png
