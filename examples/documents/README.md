@@ -262,3 +262,18 @@ Set properties for define aggregate `SUM()` functions:
 
 In the `LibreOffice Calc` click `File`/`Properties` - tab `Custom properties`
 And cells with values: `[SUM(Good.tax)]`, `[SUM(Good.total)]` and other are correctly to sum
+
+# And render our template
+```php
+require '../../OpenDocumentTemplate.php';
+
+$od = new OpenDocumentTemplate();
+
+$od->open('document_bill.ods', 'document_bill-out.ods', $data, array(
+    'with_image_dir' => 'img', //this path of your images folder
+));
+```
+
+And open new file `document_bill-out.ods` in the libre office and show print preview
+
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out.jpg)
