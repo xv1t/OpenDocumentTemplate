@@ -1,11 +1,9 @@
 # OpenDocumentTemplate.php
 >Creating reports from your templates files
 
-Before
-![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src.jpg)
-
-After
-![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out.jpg)
+Before | After
+-------|------
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src.jpg) | ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out.jpg)
 
 Recommended software for create template
 * LibreOffice
