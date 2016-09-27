@@ -15,17 +15,16 @@ If you planing use different images, firstly you make a dummy version of images
 
 
 ## Stamps
-stamp_empty.png|stamp_libre_office_calc.png|stamp_open_doc_template.png|stamp_ubuntu.png
---------|------|-----|-----
-![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_empty.png) | ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_libre_office_calc.png) | ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_open_doc_template.png) | ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_ubuntu.png)
+stamp_libre_office_calc.png|stamp_open_doc_template.png|stamp_ubuntu.png
+:------:|:-----:|:-----:
+<img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_empty.png width="150"> | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_libre_office_calc.png) | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_open_doc_template.png width="150"> | ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_ubuntu.png width="150">
 
 ## Logos
 Picture | File
 ------|-----
-![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_empty.jpg) |logo_empty.jpg
-![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_libre_office.jpg) |logo_libre_office.jpg
-![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_open_doc_template.jpg) |logo_open_doc_template.jpg
-![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_ubuntu.jpg) | logo_ubuntu.jpg
+<img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_libre_office.jpg width="150"> |logo_libre_office.jpg
+<img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_open_doc_template.jpg width="150"> |logo_open_doc_template.jpg
+<img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_ubuntu.jpg width="150"> | logo_ubuntu.jpg
 
 ## Signs
 sign_empty.png | sign_libre_office_calc.png | sign_open_doc_template.png | sign_ubuntu.png
