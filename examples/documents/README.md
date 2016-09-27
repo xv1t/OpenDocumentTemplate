@@ -206,4 +206,8 @@ Range option
 Set properties for define aggregate `SUM()` functions:
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src_properties.jpg)
 
+## Images
+All images need `Anchor` to `cell`. If select image, then be visible a anchor icon on the cell
+<img src="" width="250">
+
 ## Aggregate function `SUM()`
