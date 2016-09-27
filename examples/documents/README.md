@@ -193,6 +193,12 @@ $data = array(
 Design template file `document_bill.ods`
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src.jpg)
 
+All data fields writes on cells:
+Example | Value in the report |
+--------|------------
+[Good.name] | Book
+[Document.name] [Document.number] as [Document.date] | Bill 123/A9 at 2016-09-23
+
 ## Named range of items
 Row `10` is a named range by name `Goods`.
 
