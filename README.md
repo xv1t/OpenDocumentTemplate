@@ -1,9 +1,14 @@
 #Fast generation OpenDocument reports
-
-Before | After
--------|------
-![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src.jpg) | ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out.jpg)
-![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/continents_template_src.jpg) | ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/continents_template_out.jpg)
+<table>
+    <tr>
+        <td>![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src.jpg)
+        <td>![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out.jpg)
+    </tr>
+    <tr>
+        <td>![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/continents_template_src.jpg)
+        <td>![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/continents_template_out.jpg)
+    </tr>
+</table>
 
 Recommended software for create template
 * LibreOffice
