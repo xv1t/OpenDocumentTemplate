@@ -218,4 +218,20 @@ Logo                | Stamp   | Sign
 -----------------|--------|---------
 [Supplier.logo] | [Document.stamp] | [Document.sign]
 
+```php
+$data = array(
+    'Document' => array(
+        /*...*/
+        'stamp' => 'stamp_open_doc_template.png', //stamp image
+        'sign' => 'sign_open_doc_template.png'    //sign image
+    ),
+    'Supplier' => array(
+        'logo' => 'logo_libre_office.jpg',        //logo image name
+        /*...*/
+    ),
+    'Buyer' => array(/*..*/),
+    'Goods' => array(/*..*/),
+```
+);
+
 ## Aggregate function `SUM()`
