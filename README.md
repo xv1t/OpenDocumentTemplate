@@ -344,6 +344,17 @@ $data = array(
     )
 );
 ```
+## Design a spreedsheet
+
+   | A | B | C |  D
+---|---|---|---|---
+1  |
+2  |
+3  |
+4  |
+5  |
+6  |
+
 Well, we have a 3 level dimension array of objects:
 
 In LibreOffice Calc they are called `Range names`. 
