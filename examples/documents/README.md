@@ -3,11 +3,11 @@
 # 1. Prepare image files
 All files put in one directory, in out example in `img`
 
-Image | size     | variants | dummy image
+Image | size     | variants | dummy image   | image name
 ------|----------|----------|:--------------------:
-Logo  | 1024×100 |   3      | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_empty.jpg"> 
-Stamp | 400×400  |   3      | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_empty.png" width="200">
-Sign  | 685×350  |   3      | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/sign_empty.png" width="200">
+Logo  | 1024×100 |   3      | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_empty.jpg"> | [Supplier.logo]
+Stamp | 400×400  |   3      | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_empty.png" width="200"> | [Document.staml]
+Sign  | 685×350  |   3      | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/sign_empty.png" width="200"> | [Document.sign]
 
 If you planing use different images, firstly you make a dummy version of images
 
@@ -32,7 +32,37 @@ Picture | File
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/sign_libre_office_calc.png) |![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/sign_open_doc_template.png) |![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/sign_ubuntu.png)
 
 # 2. Prepare data array
+Our `$data` in this example is a array and it have following keys:
+```php
+$data = array(
+    'Document' => /*...*/,
+    'Supplier' => /*...*/,
+    'Buyer'    => /*...*/
+);
+```
+## Linear object notation.
+Keys `Document`, `Supplier`, `Buyer` - is a linear object keys
+```php
+$data = array(
+    'Document' => array(
+        'name' => 'Bill',
+        'number' => '123/A9',
+        'date' => '2016-09-23',
+        'manager' => ''
+    ),
+    'Supplier' => array(
+        'name' => '',
+        ''
+    ),
+    'Buyer'
+);
+```
 
+## Next deep level data
+The key `Goods` is contain a list of objects.
+```php
+
+```
 
 # 3. Design template
 Design template file `document_bill.ods`
