@@ -4,11 +4,11 @@
         "number": "123/A9",
         "date": "2016-09-23",
         "manager": "Gretto Uzz",
-        "stamp": "stamp_ubuntu.png",
+        "stamp": "stamp_libre_office_calc.png",
         "sign": "sign_open_doc_template.png"
     },
     "Supplier": {
-        "logo" : "logo_ubuntu.jpg",
+        "logo" : "logo_open_doc_template.jpg",
         "name": "Open source shot test",
         "address": "The city of the country, 123-23FZ",
         "email": "mail@example.free"        
