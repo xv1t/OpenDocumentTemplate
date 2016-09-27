@@ -3,6 +3,13 @@
 # 1. Prepare image files
 All files put in one directory, in out example in `img`
 
+Image | size
+------|------
+Logo  | 1024×100
+Stamp | 400×400
+Sign  | 685×350
+
+
 ## Stamps
 stamp_empty.png|stamp_libre_office_calc.png|stamp_open_doc_template.png|stamp_ubuntu.png
 --------|------|-----|-----
