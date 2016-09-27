@@ -1,5 +1,4 @@
-# OpenDocumentTemplate.php
->Creating reports from your templates files
+#Fast generation OpenDocument reports
 
 Before | After
 -------|------
