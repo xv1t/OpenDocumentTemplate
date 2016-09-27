@@ -6,7 +6,7 @@ All files put in one directory, in out example in `img`
 Image | size     |  dummy image   | image name
 ------|----------|:---------:|:--------------------:|----
 Logo  | 1024×100 |  <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_empty.jpg"> | [Supplier.logo]
-Stamp | 400×400  |  <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_empty.png" width="200"> | [Document.staml]
+Stamp | 400×400  |  <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_empty.png" width="200"> | [Document.stamp]
 Sign  | 685×350  |  <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/sign_empty.png" width="200"> | [Document.sign]
 
 If you planing use different images, firstly you make a dummy version of images
@@ -52,15 +52,34 @@ $data = array(
     ),
     'Supplier' => array(
         'name' => '',
-        ''
+        'address' => '',
+        'email' => ''
     ),
-    'Buyer'
+    'Buyer' => array(
+        'name' => '',
+        'address' => '',
+        'email' => ''
+    ),
 );
 ```
 
 ## Next deep level data
-The key `Goods` is contain a list of objects.
+Add a key `Goods` is contain a list of objects.
 ```php
+$data = array(
+    'Document' => /*...*/,
+    'Supplier' => /*...*/,
+    'Buyer'    => /*...*/
+    'Goods' => array(
+        array(/*...*/),
+        array(/*...*/),
+        array(/*...*/),
+        array(/*...*/),
+        array(/*...*/),
+        array(/*...*/),
+        array(/*...*/),
+    )
+);
 
 ```
 
