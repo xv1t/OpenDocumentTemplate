@@ -222,11 +222,11 @@ Logo                | Stamp   | Sign
 $data = array(
     'Document' => array(
         /*...*/
-        'stamp' => 'stamp_open_doc_template.png', //stamp image
-        'sign' => 'sign_open_doc_template.png'    //sign image
+        'stamp' => 'stamp_open_doc_template.png', //stamp image, field name: [Document.stamp]
+        'sign' => 'sign_open_doc_template.png'    //sign image, field name : [Document.sign]
     ),
     'Supplier' => array(
-        'logo' => 'logo_libre_office.jpg',        //logo image name
+        'logo' => 'logo_libre_office.jpg',        //logo image name, field name: [Supplier.logo]
         /*...*/
     ),
     'Buyer' => array(/*..*/),
