@@ -280,4 +280,4 @@ And open new file `document_bill-out.ods` in the libre office and show print pre
 
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out.jpg)
 
-![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out_ubuntu.jpg)
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out_ubuntu.png)
