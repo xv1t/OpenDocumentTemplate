@@ -21,3 +21,7 @@ $items = $xpath->query("table:table-row/table:table-cell[@table:number-rows-span
 //print_r($od->schema['named-range']);
 
 print_r($od->used_images);
+echo(1234);
+$data = json_decode( file_get_contents( 'documents.json' ), true);
+var_dump($data);
+print_r( $data );

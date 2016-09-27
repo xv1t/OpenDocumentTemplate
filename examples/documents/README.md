@@ -31,6 +31,9 @@ Picture | File
 --------|------|-----|-----
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/sign_libre_office_calc.png) |![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/sign_open_doc_template.png) |![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/sign_ubuntu.png)
 
+## Image folder
+All image put in the once folder `img`
+
 # 2. Prepare data array
 Our `$data` in this example is a array and it have following keys:
 ```php
@@ -48,17 +51,20 @@ $data = array(
         'name' => 'Bill',
         'number' => '123/A9',
         'date' => '2016-09-23',
-        'manager' => ''
+        'manager' => '',
+        'stamp' => 'stamp_open_doc_template.png',
+        'sign' => 'sign_open_doc_template.png'
     ),
     'Supplier' => array(
-        'name' => '',
-        'address' => '',
-        'email' => ''
+        'logo' => 'logo_libre_office.jpg',
+        'name' => "Open source shot test",
+        'address' => "The city of the country, 123-23FZ",
+        'email' => 'mail@example.free'
     ),
     'Buyer' => array(
-        'name' => '',
-        'address' => '',
-        'email' => ''
+        'name' => 'Typical customer',
+        'address' => 'My country',
+        'email' => 'mail@sample.com'
     ),
 );
 ```
@@ -70,7 +76,7 @@ $data = array(
     'Document' => /*...*/,
     'Supplier' => /*...*/,
     'Buyer'    => /*...*/
-    'Goods' => array(
+    'Goods' => array( //key for list of goods objects
         array(/*...*/),
         array(/*...*/),
         array(/*...*/),
@@ -80,7 +86,109 @@ $data = array(
         array(/*...*/),
     )
 );
-
+```
+And each `Good` object fill as
+```php
+array(
+    'Goods' => array(
+        array('Good' => array(/*...*/)),
+        array('Good' => array(/*...*/)),
+        array('Good' => array(/*...*/)),
+        array('Good' => array(/*...*/)),
+        array('Good' => array(/*...*/)),
+        array('Good' => array(/*...*/)),
+        array('Good' => array(/*...*/)),
+    )
+)
+```
+Add all field for each `Good` contain a kes: `name`, `cost`, `count`
+```php
+$data = array(
+    'Document' => array(
+        'name' => 'Bill',
+        'number' => '123/A9',
+        'date' => '2016-09-23',
+        'manager' => '',
+        'stamp' => 'stamp_open_doc_template.png',
+        'sign' => 'sign_open_doc_template.png'
+    ),
+    'Supplier' => array(
+        'logo' => 'logo_libre_office.jpg',
+        'name' => "Open source shot test",
+        'address' => "The city of the country, 123-23FZ",
+        'email' => 'mail@example.free'
+    ),
+    'Buyer' => array(
+        'name' => 'Typical customer',
+        'address' => 'My country',
+        'email' => 'mail@sample.com'
+    ),
+    'Goods' => array( //This list of data next dimension
+        array(
+            'Good' => array(
+                'name' => 'Cofee',
+                'cost' => 6.45,
+                'count' => 4,
+            )
+        ),
+        array(
+            'Good' => array(
+                'name' => 'Disk',
+                'cost' => 0.17,
+                'count' => 3,
+            )
+        ),
+        array(
+            'Good' => array(
+                'name' => 'Book',
+                'cost' => 2.30,
+                'count' => 3,
+            )
+        ),
+        array(
+            'Good' => array(
+                'name' => 'USB Flash',
+                'cost' => 19,
+                'count' => 2,
+            )
+        ),
+        array(
+            'Good' => array(
+                'name' => 'Floppy disk',
+                'cost' => 1.01,
+                'count' => 10,
+            )
+        ),
+        array(
+            'Good' => array(
+                'name' => 'Manual PDF',
+                'cost' => 9,
+                'count' => 1,
+            )
+        ),
+        array(
+            'Good' => array(
+                'name' => 'Hat',
+                'cost' => 17.34,
+                'count' => 7
+            )
+        ),
+        array(
+            'Good' => array(
+                'name' => 'Pen',
+                'cost' => 0.87,
+                'count' => 26
+            )
+        ),
+        array(
+            'Good' => array(
+                'name' => 'Keyboard AB',
+                'cost' => 16.04,
+                'count' => 8
+            )
+        ),
+    )
+);
 ```
 
 # 3. Design template
