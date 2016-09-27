@@ -37,4 +37,4 @@ Range option
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src_named.jpg)
 
 Set properties for define aggregate functions:
-
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src_properties.jpg)
