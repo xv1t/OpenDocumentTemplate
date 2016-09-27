@@ -279,3 +279,5 @@ $od->open('document_bill.ods', 'document_bill-out.ods', $data, array(
 And open new file `document_bill-out.ods` in the libre office and show print preview
 
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out.jpg)
+
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out_ubuntu.jpg)
