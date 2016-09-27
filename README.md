@@ -1,12 +1,12 @@
 #Fast generation OpenDocument reports
 <table>
     <tr>
-        <td>![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src.jpg)
-        <td>![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out.jpg)
+        <td> ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src.jpg)
+        <td> ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out.jpg)
     </tr>
     <tr>
-        <td>![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/continents_template_src.jpg)
-        <td>![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/continents_template_out.jpg)
+        <td> ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/continents_template_src.jpg)
+        <td> ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/continents_template_out.jpg)
     </tr>
 </table>
 
