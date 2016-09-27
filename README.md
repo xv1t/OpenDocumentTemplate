@@ -349,12 +349,12 @@ $data = array(
    | A | B | C |  D | E
 ---|---|---|---|---|----
 1 | [Report.name] | [Report.date] | [Report.author]
-2  | *Cities* 
+2  | **Cities**
 3  |   | City | [City.name] 
 4  |   | Streets | [City.streets]
 5  |   | Population | [City.population]
 6  |   | Mayor | [Mayor.name]
-7  |   | *Squares* | name | length | width
+7  |   | **Squares** | name | length | width
 8  |   |           | [Square.name] | [Square.length] | [Square.width]
 
 
