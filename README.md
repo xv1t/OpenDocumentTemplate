@@ -2,8 +2,9 @@
 
 Template  | Report
 ----------|-------
-![dddddddd](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src.jpg)    |  ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out.jpg)
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src.jpg)    |  ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out.jpg)
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/continents_template_src.jpg)  |  ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/continents_template_out.jpg)
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/pictures_template_src.jpg)    |  ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/pictures_template_out.jpg)
 
 Recommended software for create template
 * LibreOffice
