@@ -377,7 +377,11 @@ class OpenDocumentTemplate {
             $range['children'] = array();
             $range['parent'] = null;
             $range['template_rows'] = array(); //Array of row elements
-            $nlist[$range['start']] = $range;
+            
+            //repeat-row only
+            if (in_array('repeat-row', $range['range-usable-as'])){            
+                $nlist[$range['start']] = $range;
+            }
         }
 
         //Sort ranges
