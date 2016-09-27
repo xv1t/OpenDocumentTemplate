@@ -36,5 +36,7 @@ Range option
 - [x] Repeat row
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src_named.jpg)
 
-Set properties for define aggregate functions:
+Set properties for define aggregate `SUM()` functions:
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src_properties.jpg)
+
+## Aggregate function `SUM()`
