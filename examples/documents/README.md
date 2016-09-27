@@ -265,12 +265,14 @@ And cells with values: `[SUM(Good.tax)]`, `[SUM(Good.total)]` and other are corr
 
 # And render our template
 ```php
+<?php
+
 require '../../OpenDocumentTemplate.php';
 
 $od = new OpenDocumentTemplate();
 
 $od->open('document_bill.ods', 'document_bill-out.ods', $data, array(
-    'with_image_dir' => 'img', //this path of your images folder
+    'with_image_dir' => 'img/', //this path of your images folder
 ));
 ```
 
