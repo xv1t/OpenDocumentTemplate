@@ -357,8 +357,8 @@ $data = array(
 7  |   | **Squares** 
 8  |   |          | name | length | width
 9  |   |           | [Square.name] | [Square.length] | [Square.width]
-11 |
-12 |
+11 |   | Squares count | [COUNT(Squares)]
+12 | Cities count | [COUNT(Cities)]
 
 
 
