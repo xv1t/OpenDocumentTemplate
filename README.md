@@ -348,7 +348,7 @@ $data = array(
 
    | A | B | C |  D | E
 ---|---|---|---|---|----
-1 | [Report.name] | [Report.date] | [Report.author]
+1 | [Report.name] | | Author | [Report.author]
 2  | **Cities**
 3  |   | City | [City.name] 
 4  |   | Streets | [City.streets]
@@ -359,6 +359,7 @@ $data = array(
 9  |   |           | [Square.name] | [Square.length] | [Square.width]
 11 |   | Squares count | [COUNT(Squares)]
 12 | Cities count | [COUNT(Cities)]
+13 | Report date | [Report.date]
 
 
 
