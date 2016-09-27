@@ -213,6 +213,7 @@ All images need `Anchor` to `cell`. If select image, then be visible a anchor ic
 
 ## Image names
 If you want dinamic change image source, then set name to field name of current object,
+
 Logo                | Stamp   | Sign
 -----------------|--------|---------
 [Supplier.logo] | [Document.stamp] | [Document.sign]
