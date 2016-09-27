@@ -203,8 +203,6 @@ Range option
 - [x] Repeat row
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src_named.jpg)
 
-Set properties for define aggregate `SUM()` functions:
-![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src_properties.jpg)
 
 ## Images
 All images need `Anchor` to `cell`. If select image, then be visible a anchor icon on the cell
@@ -247,3 +245,16 @@ Virtual field | Formula
 On the spreedsheet in the cell with virtual field add a `Comment` and write formula, such as
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src_virtual_fields.png)
 
+## Aggregate function `COUNT()`
+Examples
+
+Named range | cell template value   | Report value
+------------|-----------------------|----------
+Goods       | [COUNT(Goods)]        |        8
+Countries   | [COUNT(Countries)]    |        3
+
+## SUM()
+
+Set properties for define aggregate `SUM()` functions:
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src_properties.jpg)
+And cells with values: `[SUM(Good.tax)]`, `[SUM(Good.total)]` and other are correctly to sum
