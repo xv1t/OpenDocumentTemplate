@@ -246,6 +246,7 @@ On the spreedsheet in the cell with virtual field add a `Comment` and write form
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src_virtual_fields.png)
 
 ## Aggregate function `COUNT()`
+All values `COUNT()` for defined named ranges automaticaly calculated
 Examples
 
 Named range | cell template value   | Report value
