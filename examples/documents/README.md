@@ -260,5 +260,5 @@ Set properties for define aggregate `SUM()` functions:
 
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src_properties.jpg)
 
-in `LibreOffice Calc` click `File`/`Properties` - tab `Custom properties`
+In the `LibreOffice Calc` click `File`/`Properties` - tab `Custom properties`
 And cells with values: `[SUM(Good.tax)]`, `[SUM(Good.total)]` and other are correctly to sum
