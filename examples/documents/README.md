@@ -222,11 +222,11 @@ Logo                | Stamp   | Sign
 $data = array(
     'Document' => array(
         /*...*/
-        'stamp' => 'stamp_open_doc_template.png', //stamp image, field name: [Document.stamp]
-        'sign' => 'sign_open_doc_template.png'    //sign image, field name : [Document.sign]
+        'stamp' => 'stamp_open_doc_template.png', //stamp image, image name: [Document.stamp]
+        'sign' => 'sign_open_doc_template.png'    //sign image, image name : [Document.sign]
     ),
     'Supplier' => array(
-        'logo' => 'logo_libre_office.jpg',        //logo image name, field name: [Supplier.logo]
+        'logo' => 'logo_libre_office.jpg',        //logo image name, image name: [Supplier.logo]
         /*...*/
     ),
     'Buyer' => array(/*..*/),
@@ -234,4 +234,15 @@ $data = array(
 ```
 );
 
-## Aggregate function `SUM()`
+## Virtual fields
+In the good we have a two numeric fields: `cost`, `count`.
+But what about a value of `cost * count`?
+
+Virtual field | Formula
+--------------|-----------
+[Good.total]    | [Good.cost]*[Good.count]
+[Good.tax]    | [Good.total] * 0.18
+[Good.with_tax] | [Good.with_tax]
+
+On the spreedsheet in the cell with virtual field add a `Comment` and write formula, such as
+![]()
