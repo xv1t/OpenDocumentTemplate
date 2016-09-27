@@ -79,9 +79,11 @@ $template->open('sample_report.ods', 'sample_report-out.ods', $data)
 ```
 And open new file `sample_report-out.ods` and you see in table:
 
-A   | B |   C
-----|---|----
-Test Report | 2016-09-25 | Me
+  |A   | B |   C
+---|---|---|----
+1 |Test Report | 2016-09-25 | Me
+2 | | |
+3 | | |
 
 ## Add second dimension
 Add a key `Cities` for the list of objects
