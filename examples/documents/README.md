@@ -280,4 +280,8 @@ And open new file `document_bill-out.ods` in the libre office and show print pre
 
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out.jpg)
 
+Change the image names and your reports be a differents!
+
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out_ubuntu.png)
+
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out_libre.png)
