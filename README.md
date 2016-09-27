@@ -77,7 +77,7 @@ Save it with name `sample_report.ods`.
 <?php
 $template->open('sample_report.ods', 'sample_report-out.ods', $data)
 ```
-And open new file `sample_report-out.ods` and you see in table:
+And open new file `sample_report-out.ods` and you see in sheet:
 
   |A   | B |   C
 ---|---|---|----
