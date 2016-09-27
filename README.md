@@ -346,8 +346,8 @@ $data = array(
 ```
 ## Design a spreedsheet
 
-   | A | B | C |  D
----|---|---|---|---
+   | A | B | C |  D | E
+---|---|---|---|---|----
 1 | [Report.name] | [Report.date] | [Report.author]
 2  | *Cities* 
 3  |   | City | [City.name] 
