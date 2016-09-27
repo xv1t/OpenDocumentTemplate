@@ -5,7 +5,7 @@ All files put in one directory, in out example in `img`
 
 Image | size     | variants | dummy
 ------|----------|----------|----
-Logo  | 1024×100 |   3      | ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_empty.jpg) 
+Logo  | 1024×100 |   3      | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_empty.jpg"> 
 Stamp | 400×400  |   3      | ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_empty.png =300x)
 Sign  | 685×350  |   3      | ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/sign_empty.png) 
 
