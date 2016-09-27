@@ -30,5 +30,8 @@ Design template file `document_bill.ods`
 
 ## Named range of items
 Row `10` is a named range by name `Goods`.
-Range option [x] Repeat row
+
+Range option 
+
+- [x] Repeat row
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src_named.jpg)
