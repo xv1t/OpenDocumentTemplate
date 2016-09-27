@@ -194,6 +194,7 @@ Design template file `document_bill.ods`
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src.jpg)
 
 All data fields writes on cells:
+
 Example | Value in the report |
 --------|------------
 [Good.name] | Book
