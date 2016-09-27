@@ -6,7 +6,7 @@ All files put in one directory, in out example in `img`
 Image | size     | variants | dummy image
 ------|----------|----------|:--------------------:
 Logo  | 1024×100 |   3      | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/logo_empty.jpg"> 
-Stamp | 400×400  |   3      | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_empty.png" width="150">
+Stamp | 400×400  |   3      | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_empty.png" width="200">
 Sign  | 685×350  |   3      | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/sign_empty.png" width="200">
 
 If you planing use different images, firstly you make a dummy version of images
@@ -17,7 +17,7 @@ If you planing use different images, firstly you make a dummy version of images
 ## Stamps
 stamp_libre_office_calc.png|stamp_open_doc_template.png|stamp_ubuntu.png
 :------:|:-----:|:-----:
-<img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_empty.png" width="150"> | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_libre_office_calc.png" width="150"> | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_open_doc_template.png width="150"> | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_ubuntu.png" width="150">
+<img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_empty.png" width="200"> | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_libre_office_calc.png" width="150"> | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_open_doc_template.png width="200"> | <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/stamp_ubuntu.png" width="200">
 
 ## Logos
 Picture | File
