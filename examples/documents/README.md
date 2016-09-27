@@ -211,4 +211,10 @@ All images need `Anchor` to `cell`. If select image, then be visible a anchor ic
 
 <img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src_img_anchor.png" width="250">
 
+## Image names
+If you want dinamic change image source, then set name to field name of current object,
+Logo                | Stamp   | Sign
+-----------------|--------|---------
+[Supplier.logo] | [Document.stamp] | [Document.sign]
+
 ## Aggregate function `SUM()`
