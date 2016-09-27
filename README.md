@@ -64,9 +64,11 @@ Open the LibreOffice Calc. Create new spreedsheet;
 
 add a 3 cells for next contents:
 
-A   | B |   C
-----|---|----
-[Report.name] | [Report.date] | [Report.author]
+  |A   | B |   C
+-|---|---|----
+1 | [Report.name] | [Report.date] | [Report.author]
+2 | | |
+3 | | |
 
 Save it with name `sample_report.ods`.
 
