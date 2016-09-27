@@ -245,4 +245,5 @@ Virtual field | Formula
 [Good.with_tax] | [Good.with_tax]
 
 On the spreedsheet in the cell with virtual field add a `Comment` and write formula, such as
-![]()
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src_virtual_fields.png)
+
