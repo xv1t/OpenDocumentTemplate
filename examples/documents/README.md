@@ -1,5 +1,8 @@
 # Documents example
 
+# 1. Prepare image files
+All files put in one directory, in out example in `img`
+
 ## Stamps
 stamp_empty.png|stamp_libre_office_calc.png|stamp_open_doc_template.png|stamp_ubuntu.png
 --------|------|-----|-----
@@ -17,3 +20,10 @@ Picture | File
 sign_empty.png | sign_libre_office_calc.png | sign_open_doc_template.png | sign_ubuntu.png
 --------|------|-----|-----
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/sign_empty.png) |![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/sign_libre_office_calc.png) |![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/sign_open_doc_template.png) |![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/examples/documents/img/sign_ubuntu.png)
+
+# 2. Prepare data array
+
+
+# 3. Design template
+Design template file `document_bill.ods`
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src.jpg)
