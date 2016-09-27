@@ -64,8 +64,8 @@ Open the LibreOffice Calc. Create new spreedsheet;
 
 add a 3 cells for next contents:
 
-  |A   | B |   C
--|---|---|----
+   |A   | B |   C
+---|---|---|----
 1 | [Report.name] | [Report.date] | [Report.author]
 2 | | |
 3 | | |
