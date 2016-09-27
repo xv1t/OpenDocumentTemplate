@@ -27,3 +27,7 @@ sign_empty.png | sign_libre_office_calc.png | sign_open_doc_template.png | sign_
 # 3. Design template
 Design template file `document_bill.ods`
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src.jpg)
+
+## Named range of items
+Row `10` is a named range by name `Goods`
+![]()
