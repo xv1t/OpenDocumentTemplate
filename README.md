@@ -3,8 +3,8 @@
 Template  | Report
 ----------|-------
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src.jpg)  Bill document template |  ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out.jpg) [/examples/documents](https://github.com/xv1t/OpenDocumentTemplate/tree/master/examples/documents) 
-![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/continents_template_src.jpg)  |  ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/continents_template_out.jpg)
-![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/pictures_template_src.jpg)    |  ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/pictures_template_out.jpg)
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/continents_template_src.jpg) Simple cards  |  ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/continents_template_out.jpg) [/examples/continents](https://github.com/xv1t/OpenDocumentTemplate/tree/master/examples/continents) 
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/pictures_template_src.jpg) Dynamic pictures   |  ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/pictures_template_out.jpg) [/examples/pictures](https://github.com/xv1t/OpenDocumentTemplate/tree/master/examples/pictures) 
 
 Recommended software for create template
 * LibreOffice
