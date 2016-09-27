@@ -348,12 +348,16 @@ $data = array(
 
    | A | B | C |  D
 ---|---|---|---|---
-1  |
-2  |
-3  |
-4  |
-5  |
-6  |
+1 | [Report.name] | [Report.date] | [Report.author]
+2  | Cities 
+3  |   | City | [City.name] 
+4  |   | Streets | [City.streets]
+5  |   | Population | [City.population]
+6  |   | Mayor | [Mayor.name]
+7  |   | Squares | name | length | width
+8  |   |        | 
+
+
 
 Well, we have a 3 level dimension array of objects:
 
