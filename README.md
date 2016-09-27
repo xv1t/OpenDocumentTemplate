@@ -1,7 +1,9 @@
 # OpenDocumentTemplate.php
 >Creating reports from your templates files
-
-![](https://github.com/xv1t/cakephp-opendocument-template/blob/master/Docs/img/ods_01_Report_file_view.png)
+Before
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src.jpg)
+After
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out.jpg)
 
 Recommended software for create template
 * LibreOffice
