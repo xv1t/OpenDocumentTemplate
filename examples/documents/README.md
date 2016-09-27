@@ -208,6 +208,7 @@ Set properties for define aggregate `SUM()` functions:
 
 ## Images
 All images need `Anchor` to `cell`. If select image, then be visible a anchor icon on the cell
-<img src="" width="250">
+
+<img src="https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src_img_anchor.png" width="250">
 
 ## Aggregate function `SUM()`
