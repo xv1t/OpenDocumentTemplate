@@ -257,5 +257,6 @@ Countries   | [COUNT(Countries)]    |        3
 ## SUM()
 
 Set properties for define aggregate `SUM()` functions:
+`File`/`Properties` - tab `Custom properties`
 ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src_properties.jpg)
 And cells with values: `[SUM(Good.tax)]`, `[SUM(Good.total)]` and other are correctly to sum
