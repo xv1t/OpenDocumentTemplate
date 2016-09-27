@@ -354,10 +354,11 @@ $data = array(
 4  |   | Streets | [City.streets]
 5  |   | Population | [City.population]
 6  |   | Mayor | [Mayor.name]
-7  |   | **Squares** | name | length | width
-8  |   |           | [Square.name] | [Square.length] | [Square.width]
-9 |
-10 |
+7  |   | **Squares** 
+8  |   |           | | name | length | width
+9  |   |           | | [Square.name] | [Square.length] | [Square.width]
+11 |
+12 |
 
 
 
