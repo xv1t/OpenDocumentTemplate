@@ -88,7 +88,7 @@ class OpenDocumentTemplate {
 
                 break;
             case 'application/vnd.oasis.opendocument.text':
-                //coming_soon
+                $this->odt_analyze();
                 break;
         }
 
@@ -139,6 +139,10 @@ class OpenDocumentTemplate {
         //find unused images and and delete from zip
 
         $zip->close();
+    }
+    
+    function odt_analyze(){
+        //$office_text = $manifest = $this->dom->getElementsByTagName('')
     }
     
    function delete_from_manifest($filename){
