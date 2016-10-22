@@ -20,6 +20,16 @@ print_r($para);
 foreach ($para as $p){
     $textContent = $p->textContent;
     $childNodes = $p->childNodes->length;
-    print_r(compact('textContent', 'childNodes'));
+    $firstChildTextContent = null;
+    
+    $childnodes = array();
+    
+    if (!empty($p->childNodes)){
+        foreach ($p->childNodes as $childNode){
+            $childnodes[] = $childNode->textContent;
+        }
+    }
+
+    print_r(compact('textContent', 'childNodes', 'childnodes', 'p'));
 }
 
