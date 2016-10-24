@@ -721,7 +721,7 @@ class OpenDocumentTemplate {
             foreach ($frames as $frame){
                 $frame_name = $frame->getAttribute('draw:name');
                 $image_name = false;
-                print_r(compact('frame_name'));
+                //print_r(compact('frame_name'));
                 if ($this->parse_string_is_once_param($frame_name)){
                     $param_key = $this->parse_string_extract_param($frame_name);
 
@@ -751,7 +751,7 @@ class OpenDocumentTemplate {
                 
                 
                 if ($image_name){
-                    print_r(compact('image_name'));
+                    //print_r(compact('image_name'));
                     $this->used_images[$image_name] = $image_name;
                 }
 
