@@ -1,7 +1,6 @@
 Project name | OpenDocumentTemplate
 -------------|---------------------
 Language     | PHP
--------------|----------------------
 Source files | ODS, ODT
 
 
