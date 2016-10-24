@@ -4,7 +4,7 @@
  * Class for generate files from templates
  * OpenDocument (LibreOffice, OpenOffice):
  *    1. ODS
- *    2. ODT (cooming soon)
+ *    2. ODT
  */
 
 class OpenDocumentTemplate {
@@ -65,7 +65,9 @@ class OpenDocumentTemplate {
         $data += array(
             'now' => date('Y-m-d'),
             'now_datetime' => date('Y-m-d H:i:i'),
+            'datetime' => date('Y-m-d H:i:i'),
             'now_time' => date('H:i:s'),
+            'time' => date('H:i:s'),
             'template_file' => $template_file,
             'out_file' => $out_file
         );
@@ -88,6 +90,7 @@ class OpenDocumentTemplate {
 
                 break;
             case 'application/vnd.oasis.opendocument.text':
+                echo "ODT!!!!!!!!!!!";
                 $this->odt_analyze();
                 break;
         }
@@ -142,8 +145,30 @@ class OpenDocumentTemplate {
     }
     
     function odt_analyze(){
-        //$office_text = $manifest = $this->dom->getElementsByTagName('')
+        $text = $this->dom->getElementsByTagName('text')->item(0);
+        
+        $para = $text->getElementsByTagName('p');
+        $this->odt_parse_elements($para);
+        
+        $para = $text->getElementsByTagName('h');
+        $this->odt_parse_elements($para);      
+        
+        //images
+        $this->ods_render_cell_images($text, $this->data);
     }
+    
+   function odt_parse_elements($elements){
+       foreach ($elements as $p){
+            foreach ($p->childNodes as $item){
+                $textContent = $item->textContent;
+                if ($this->string_has_params($textContent)){
+                    //echo "PARSE: \"$textContent\" -> ";
+                    $item->nodeValue = $this->parse_string($textContent, $this->data);
+                    //echo "\"" . $item->nodeValue . "\"\n";
+                }
+            }
+        }
+   }
     
    function delete_from_manifest($filename){
        $file_entries = $this->dom_elements2array( $this->dom->getElementsByTagName('file-entry') );
@@ -696,7 +721,7 @@ class OpenDocumentTemplate {
             foreach ($frames as $frame){
                 $frame_name = $frame->getAttribute('draw:name');
                 $image_name = false;
-
+                print_r(compact('frame_name'));
                 if ($this->parse_string_is_once_param($frame_name)){
                     $param_key = $this->parse_string_extract_param($frame_name);
 
@@ -717,10 +742,16 @@ class OpenDocumentTemplate {
 
                 } else {
                     $draw = $frame->getElementsByTagName('image')->item(0);    
-                    $image_name = $draw->getAttribute('xlink:href');
+                    //print_r(compact('draw'));
+                    if ($draw){
+                        
+                        $image_name = $draw->getAttribute('xlink:href');
+                    }
                 }
                 
+                
                 if ($image_name){
+                    print_r(compact('image_name'));
                     $this->used_images[$image_name] = $image_name;
                 }
 

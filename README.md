@@ -1,16 +1,19 @@
 Project name | OpenDocumentTemplate
 -------------|---------------------
 Language     | PHP
+-------------|----------------------
+Source files | ODS, ODT
 
 
 #Fast generation OpenDocument reports
+Support files: `ODS`, `ODT`
 
 Template  | Report
 ----------|-------
-[ ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src.jpg) ](https://github.com/xv1t/OpenDocumentTemplate/tree/master/examples/documents)     Bill document template | [ ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out.jpg)  ](https://github.com/xv1t/OpenDocumentTemplate/tree/master/examples/documents)  See the great manual [/examples/documents](https://github.com/xv1t/OpenDocumentTemplate/tree/master/examples/documents) 
-![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/continents_template_src.jpg) Simple cards with data  |  ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/continents_template_out.jpg) [/examples/continents](https://github.com/xv1t/OpenDocumentTemplate/tree/master/examples/continents) 
-![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/pictures_template_src.jpg) Dynamic pictures   |  ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/pictures_template_out.jpg) [/examples/pictures](https://github.com/xv1t/OpenDocumentTemplate/tree/master/examples/pictures) 
-![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/deepdata_template_src.jpg) 15 level deep dimensions   |  ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/deepdata_template_out.jpg) [/examples/deepdata](https://github.com/xv1t/OpenDocumentTemplate/tree/master/examples/deepdata) 
+[ ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_src.jpg) ](https://github.com/xv1t/OpenDocumentTemplate/tree/master/examples/documents)     Bill document template (ODS) | [ ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/document_template_out.jpg)  ](https://github.com/xv1t/OpenDocumentTemplate/tree/master/examples/documents)  See the great manual [/examples/documents](https://github.com/xv1t/OpenDocumentTemplate/tree/master/examples/documents) 
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/continents_template_src.jpg) Simple cards with data (ODS)  |  ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/continents_template_out.jpg) [/examples/continents](https://github.com/xv1t/OpenDocumentTemplate/tree/master/examples/continents) 
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/pictures_template_src.jpg) Dynamic pictures (ODS)   |  ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/pictures_template_out.jpg) [/examples/pictures](https://github.com/xv1t/OpenDocumentTemplate/tree/master/examples/pictures) 
+![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/deepdata_template_src.jpg) 15 level deep dimensions (ODS)   |  ![](https://github.com/xv1t/OpenDocumentTemplate/blob/master/docs/img/deepdata_template_out.jpg) [/examples/deepdata](https://github.com/xv1t/OpenDocumentTemplate/tree/master/examples/deepdata) 
 
 Recommended software for create template
 * LibreOffice
@@ -21,7 +24,7 @@ Your done report files was correct opened in
 * OpenOffice
 * MS Office >=2010
 
-## Fast manual
+## Fast manual (ods)
 1. Create template ods file
 2. Put elements
 3. Mark ranges

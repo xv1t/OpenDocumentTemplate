@@ -9,6 +9,7 @@ echo "Build report...\n";
 $od->open('text_doc-template.odt', 'text_doc-out.odt', $data, array(
    // 'with_image_dir' => 'img',
   //  'extract_content' => true,
+    'with_image_dir' => '../pictures/img',    
     'dom_stay' => true
 ));
 
@@ -30,6 +31,6 @@ foreach ($para as $p){
         }
     }
 
-    print_r(compact('textContent', 'childNodes', 'childnodes', 'p'));
+    //print_r(compact('textContent', 'childNodes', 'childnodes', 'p'));
 }
 
