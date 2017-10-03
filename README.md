@@ -41,7 +41,7 @@ Php version >=5.3
 
 Recommended sowfware for templating: LibreOffice 5
 
-##Install
+## Install
 Put file `OpenDocumentTemplate.php` into your project, and use it
 ```php
 <?php
@@ -52,7 +52,7 @@ include_once "OpenDocumentTemplate.php";
 $template = new OpenDocumentTemplate();
 ```
 
-#First simple report
+# First simple report
 
 ## Prepare your data
 Data - is array in php. Recommend all object fields group in object name.
@@ -77,8 +77,8 @@ Open the LibreOffice Calc. Create new spreedsheet;
 
 add a 3 cells for next contents:
 
-   |A   | B |   C
----|---|---|----
+[]  |A   | B |   C   |
+---|----|---|------|
 1 | [Report.name] | [Report.date] | [Report.author]
 2 | | |
 3 | | |
@@ -92,7 +92,7 @@ $template->open('sample_report.ods', 'sample_report-out.ods', $data)
 ```
 And open new file `sample_report-out.ods` and you see in sheet:
 
-  |A   | B |   C
+[]  |A   | B |   C
 ---|---|---|----
 1 |Test Report | 2016-09-25 | Me
 2 | | |
@@ -359,7 +359,7 @@ $data = array(
 ```
 ## Design a spreedsheet
 
-   | A | B | C |  D | E
+[]   | A | B | C |  D | E
 ---|---|---|---|---|----
 1 | [Report.name] | | Author | [Report.author]
 2  | **Cities**
